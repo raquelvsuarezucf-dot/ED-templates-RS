@@ -2225,4 +2225,102 @@ Discussed clinical status and risk of bilirubin neurotoxicity with caregivers; f
 })();
 </script>
 
+
+<script>
+// -------- Robust GitHub Sync with auto-SHA resolution --------
+(function(){
+  if (window.__autoshan_patch_applied__) return;
+  window.__autoshan_patch_applied__ = true;
+
+  async function ghGet(url, token){
+    const r = await fetch(url, {
+      headers: {
+        'Accept': 'application/vnd.github+json',
+        'Authorization': token ? `Bearer ${token}` : undefined,
+        'X-GitHub-Api-Version': '2022-11-28'
+      }
+    });
+    const body = await r.json().catch(()=>({}));
+    return {status: r.status, ok: r.ok, body};
+  }
+  async function ghPut(url, token, payload){
+    const r = await fetch(url, {
+      method: 'PUT',
+      headers: {
+        'Accept': 'application/vnd.github+json',
+        'Authorization': token ? `Bearer ${token}` : undefined,
+        'X-GitHub-Api-Version': '2022-11-28',
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(payload)
+    });
+    const body = await r.json().catch(()=>({}));
+    return {status: r.status, ok: r.ok, body};
+  }
+
+  // Expose a robust sync method (used by "Sync to Repo Now" and "Sync on Save")
+  window.githubSyncAutoSha = async function({owner, repo, branch, dir, token, filename='index.html', content, message='Sync from app'}){
+    const base = `https://api.github.com/repos/${encodeURIComponent(owner)}/${encodeURIComponent(repo)}/contents`;
+    const path = (dir && dir !== '/' ? `${dir.replace(/^\/+|\/+$/g,'')}/` : '') + filename;
+    const getUrl = `${base}/${encodeURIComponent(path)}?ref=${encodeURIComponent(branch)}`;
+    const putUrl = `${base}/${encodeURIComponent(path)}`;
+
+    // Step 1: check if file exists to get current sha
+    let sha = null;
+    let g = await ghGet(getUrl, token);
+    if (g.ok && g.body && g.body.sha) {
+      sha = g.body.sha;
+    }
+
+    // Step 2: attempt PUT with or without sha accordingly
+    const payload = {
+      message,
+      content: btoa(unescape(encodeURIComponent(content))), // UTF-8 safe
+      branch
+    };
+    if (sha) payload.sha = sha;
+
+    let p = await ghPut(putUrl, token, payload);
+
+    // Step 3: If 409 due to sha mismatch, refresh sha and retry once
+    if (p.status === 409) {
+      const g2 = await ghGet(getUrl, token);
+      if (g2.ok && g2.body && g2.body.sha && g2.body.sha !== sha) {
+        payload.sha = g2.body.sha;
+        p = await ghPut(putUrl, token, payload);
+      }
+    }
+
+    if (!p.ok) {
+      const msg = (p.body && (p.body.message || JSON.stringify(p.body))) || `status ${p.status}`;
+      throw new Error(`GitHub PUT failed: ${p.status} — ${msg}`);
+    }
+    return p.body;
+  };
+
+  // Patch any existing sync button handler to use our robust method if available
+  document.addEventListener('click', function(e){
+    const el = e.target.closest('#syncToRepoNowBtn, [data-sync-now]');
+    if (!el) return;
+    if (typeof getRepoCfg !== 'function' || typeof buildHtmlSnapshot !== 'function') return;
+    e.stopPropagation();
+    e.preventDefault();
+    const cfg = getRepoCfg();
+    const html = buildHtmlSnapshot();
+    (async ()=>{
+      try{
+        await window.githubSyncAutoSha({
+          owner: cfg.owner, repo: cfg.repo, branch: cfg.branch, dir: cfg.dir || '',
+          token: cfg.token, filename: 'index.html', content: html, message: 'Sync from app'
+        });
+        if (typeof showToast === 'function') showToast('✅ Synced to GitHub');
+        else alert('✅ Synced to GitHub');
+      }catch(err){
+        alert(err.message || err);
+      }
+    })();
+  }, true);
+})();
+</script>
+
 </body></html>
