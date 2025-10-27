@@ -280,7 +280,7 @@
 
   <!-- =================== APP =================== -->
 
-  <div id="toast" role="status" aria-live="polite" class="fixed left-1/2 -translate-x-1/2 top-4 z-50 px-4 py-2 rounded-xl bg-ink text-white text-sm shadow-soft toast-pop" style="display: none;">New macro added</div>
+  <div id="toast" role="status" aria-live="polite" class="fixed left-1/2 -translate-x-1/2 top-4 z-50 px-4 py-2 rounded-xl bg-ink text-white text-sm shadow-soft toast-pop" style="display: none;">Saved</div>
 
   <!-- Choose modal -->
 
@@ -292,7 +292,7 @@
 
       <h2 id="modal-title" class="text-lg font-semibold mb-3">Multiple matches for “.peds”</h2>
 
-      <div id="modal-content" class="space-y-2"><button class="focus-ring w-full text-left px-3 py-2 rounded-xl border border-slate-200 bg-white hover:bg-slate-50"><div class="text-sm font-medium">MDM — Pediatric Viral / Febrile Illness</div><div class="text-xs text-muted">.pedsviral • Pediatrics • Viral</div></button><button class="focus-ring w-full text-left px-3 py-2 rounded-xl border border-slate-200 bg-white hover:bg-slate-50"><div class="text-sm font-medium">Pediatric Streptococcal Pharyngitis</div><div class="text-xs text-muted">.pedsstrep • Pediatrics • Viral</div></button><button class="focus-ring w-full text-left px-3 py-2 rounded-xl border border-slate-200 bg-white hover:bg-slate-50"><div class="text-sm font-medium">MDM — Pediatric Otitis Media</div><div class="text-xs text-muted">.pedsaom • Pediatrics • Viral</div></button><button class="focus-ring w-full text-left px-3 py-2 rounded-xl border border-slate-200 bg-white hover:bg-slate-50"><div class="text-sm font-medium">Pediatric Pneumonia — MDM Template</div><div class="text-xs text-muted">.pedspna • Pediatrics • Viral</div></button></div>
+      <div id="modal-content" class="space-y-2"><button class="focus-ring w-full text-left px-3 py-2 rounded-xl border border-slate-200 bg-white hover:bg-slate-50"><div class="text-sm font-medium">MDM — Pediatric Viral / Febrile Illness</div><div class="text-xs text-muted">.pedsviral • Pediatrics • Viral</div></button><button class="focus-ring w-full text-left px-3 py-2 rounded-xl border border-slate-200 bg-white hover:bg-slate-50"><div class="text-sm font-medium">Pediatric Streptococcal Pharyngitis</div><div class="text-xs text-muted">.pedsstrep • Pediatrics • Viral</div></button><button class="focus-ring w-full text-left px-3 py-2 rounded-xl border border-slate-200 bg-white hover:bg-slate-50"><div class="text-sm font-medium">MDM — Pediatric Otitis Media</div><div class="text-xs text-muted">.pedsaom • Pediatrics • Viral</div></button><button class="focus-ring w-full text-left px-3 py-2 rounded-xl border border-slate-200 bg-white hover:bg-slate-50"><div class="text-sm font-medium">Pediatric Pneumonia — MDM Template</div><div class="text-xs text-muted">.pedspna • Pediatrics • Viral</div></button><button class="focus-ring w-full text-left px-3 py-2 rounded-xl border border-slate-200 bg-white hover:bg-slate-50"><div class="text-sm font-medium">PECARN — No CT, No Observation</div><div class="text-xs text-muted">.pedspecarn1 • Pediatrics • Trauma</div></button><button class="focus-ring w-full text-left px-3 py-2 rounded-xl border border-slate-200 bg-white hover:bg-slate-50"><div class="text-sm font-medium">PECARN — No CT, Observation</div><div class="text-xs text-muted">.pedspecarn2 • Pediatrics • Trauma</div></button><button class="focus-ring w-full text-left px-3 py-2 rounded-xl border border-slate-200 bg-white hover:bg-slate-50"><div class="text-sm font-medium">PECARN — CT Recommended</div><div class="text-xs text-muted">.pedspecarn3 • Pediatrics • Trauma</div></button></div>
 
       <div class="mt-4 flex justify-end gap-2">
 
@@ -406,7 +406,7 @@
 
             <button id="settingsBtn" class="focus-ring px-3 py-2 rounded-xl bg-primary text-white hover:bg-primary/90 text-sm" aria-haspopup="true" aria-expanded="true" aria-controls="settingsMenu">Settings ▾</button>
 
-            <div id="settingsMenu" role="menu" aria-labelledby="settingsBtn" class="menu absolute right-0 mt-2 w-52 rounded-2xl border border-slate-200 bg-white shadow-soft p-2 open rvs-settings-float" style="top: 61px; right: 31px;">
+            <div id="settingsMenu" role="menu" aria-labelledby="settingsBtn" class="menu absolute right-0 mt-2 w-52 rounded-2xl border border-slate-200 bg-white shadow-soft p-2 rvs-settings-float open" style="top: 61px; right: 31px;">
 
               <button id="exportBtn" role="menuitem" class="focus-ring w-full text-left px-3 py-2 rounded-xl hover:bg-slate-50 text-sm">Export JSON</button>
 
@@ -707,7 +707,170 @@ Strict return precautions discussed, including persistent fever, worsening ear p
         <pre class="macro-body mt-3 text-[13.5px] leading-5 border border-slate-200 rounded-xl p-3 overflow-auto">Patient presented with [cough / fever / shortness of breath / malaise] for [duration] prior to arrival. Parent present at bedside reports [persistent cough / decreased appetite / mild fatigue / increased work of breathing] with [no vomiting / no lethargy / no rash]. On exam, patient was alert, interactive, and behaving appropriately for age. Lungs revealed [focal crackles / diminished breath sounds / rhonchi / mild wheezing], with [no retractions / no nasal flaring / normal oxygen saturation]. Findings otherwise reassuring, with no signs of respiratory distress or dehydration.
 Differential includes viral pneumonia, bacterial pneumonia, bronchiolitis, asthma or reactive airway exacerbation, and upper respiratory infection. Findings today are most consistent with [bacterial / viral] pneumonia based on clinical picture and [chest x-ray results / auscultatory findings].
 Findings and imaging were consistent with [bacterial / viral] pneumonia. Patient was [prescribed / given] [amoxicillin / azithromycin / cefdinir], weight-based, for outpatient treatment. Supportive care discussed with parent at bedside, including acetaminophen or ibuprofen for fever control and encouraging fluids as tolerated. [Continued with prescribed albuterol as needed.] Parent verbalized understanding and was comfortable with the plan for discharge and follow-up.
-Return precautions discussed, including but not limited to: worsening or persistent fever, increased work of breathing, chest pain, vomiting, lethargy, poor oral intake, cyanosis, or any new or concerning symptoms. Advised follow-up with pediatrician within 48–72 hours for reassessment or sooner if symptoms worsen.</pre></article></section>
+Return precautions discussed, including but not limited to: worsening or persistent fever, increased work of breathing, chest pain, vomiting, lethargy, poor oral intake, cyanosis, or any new or concerning symptoms. Advised follow-up with pediatrician within 48–72 hours for reassessment or sooner if symptoms worsen.</pre></article><article class="rounded-2xl bg-white border border-slate-200 shadow-soft p-4" draggable="true" aria-grabbed="false">
+
+        <div class="flex items-start gap-2">
+
+          <div class="flex-1 min-w-0">
+
+            <h3 class="text-base font-semibold leading-tight break-words">PECARN — No CT, No Observation</h3>
+
+            <div class="mt-1 flex items-center gap-2 text-xs text-muted">
+
+              <span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-bg2/60 border border-slate-200">Pediatrics</span>
+
+              <span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-white border border-slate-200">Trauma</span>
+
+              <span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-white border border-slate-200">Dot: .pedspecarn1</span>
+
+              
+
+            </div>
+
+          </div>
+
+          <div class="shrink-0 flex gap-1">
+
+            <button class="focus-ring copy px-3 py-2 rounded-xl border border-slate-200 bg-white hover:bg-slate-50 text-sm">Copy</button>
+
+            <button class="focus-ring edit px-3 py-2 rounded-xl border border-slate-200 bg-white hover:bg-slate-50 text-sm">Edit</button>
+
+            <button class="focus-ring del  px-3 py-2 rounded-xl border border-slate-200 bg-white hover:bg-slate-50 text-sm">Del</button>
+
+          </div>
+
+        </div>
+
+        <pre class="macro-body mt-3 text-[13.5px] leading-5 border border-slate-200 rounded-xl p-3 overflow-auto">MDM — Pediatric Head Trauma (No CT, No Observation)
+
+PECARN CALCULATIONS:
+Age group: [&lt;2 years / ≥2 years]
+Mechanism of injury: [describe]
+PECARN ciTBI estimated risk:
+    &lt;2 years: &lt;0.02 %
+    ≥2 years: &lt;0.05 %
+All predictors negative:
+    - Normal mental status, GCS 15
+    - No loss of consciousness (≥2 y: any; &lt;2 y: ≥5 s)
+    - No palpable or basilar skull fracture
+    - No non-frontal scalp hematoma (&lt;2 y)
+    - No vomiting, severe headache, or severe mechanism
+
+---
+
+Patient presented after minor head trauma with no loss of consciousness, vomiting, or abnormal behavior. On examination, child appeared well, alert, and interactive for age with normal tone, strength, and coordination. Pupils equal and reactive; no scalp hematoma or tenderness; no step-off or signs of basilar skull fracture. Vitals stable and age-appropriate. No focal neurologic deficits.
+
+Based on the PECARN decision rule, patient meets very-low-risk criteria for clinically important traumatic brain injury (estimated risk &lt;0.05%). Given the absence of concerning features and a reassuring neurologic exam, no head CT or prolonged observation is indicated. Discussed the extremely low probability of intracranial injury and risks associated with radiation exposure with the parent, who agreed with home observation. All questions answered and expectations reviewed.
+
+Patient remained well-appearing and interactive during ED course. Discharged home with strict return precautions for persistent vomiting, worsening headache, confusion, seizure, focal deficits, lethargy, or poor oral intake. Advised follow-up with pediatrician within 48 hours or sooner if concerns arise.</pre></article><article class="rounded-2xl bg-white border border-slate-200 shadow-soft p-4" draggable="true" aria-grabbed="false">
+
+        <div class="flex items-start gap-2">
+
+          <div class="flex-1 min-w-0">
+
+            <h3 class="text-base font-semibold leading-tight break-words">PECARN — No CT, Observation</h3>
+
+            <div class="mt-1 flex items-center gap-2 text-xs text-muted">
+
+              <span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-bg2/60 border border-slate-200">Pediatrics</span>
+
+              <span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-white border border-slate-200">Trauma</span>
+
+              <span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-white border border-slate-200">Dot: .pedspecarn2</span>
+
+              
+
+            </div>
+
+          </div>
+
+          <div class="shrink-0 flex gap-1">
+
+            <button class="focus-ring copy px-3 py-2 rounded-xl border border-slate-200 bg-white hover:bg-slate-50 text-sm">Copy</button>
+
+            <button class="focus-ring edit px-3 py-2 rounded-xl border border-slate-200 bg-white hover:bg-slate-50 text-sm">Edit</button>
+
+            <button class="focus-ring del  px-3 py-2 rounded-xl border border-slate-200 bg-white hover:bg-slate-50 text-sm">Del</button>
+
+          </div>
+
+        </div>
+
+        <pre class="macro-body mt-3 text-[13.5px] leading-5 border border-slate-200 rounded-xl p-3 overflow-auto">MDM — Pediatric Head Trauma (Observation without CT)
+
+PECARN CALCULATIONS:
+Age group: [&lt;2 years / ≥2 years]  
+Mechanism of injury: [describe]  
+PECARN ciTBI estimated risk:  
+ &lt; 2 years ≈ 0.9 %  ≥ 2 years ≈ 0.8 %  
+Low-risk group with intermediate factor(s): [list specific factor(s)]  
+ - Normal mental status / GCS 15  
+ - No palpable or basilar skull fracture  
+ - No signs of focal neurologic deficit  
+ - May have isolated vomiting / brief LOC / mild headache / frontal hematoma  
+ - Mechanism not severe  
+
+---
+
+Patient presented after minor head trauma with [brief loss of consciousness / single vomit / mild headache] and otherwise normal behavior per caregiver. Exam revealed a well-appearing, interactive child with normal pupils, tone, strength, and coordination. No skull tenderness or step-off appreciated; tympanic membranes clear; no basilar signs. Vitals stable and appropriate for age.
+
+Using the PECARN rule, patient falls within the low-risk “observation” zone (&lt; 1 % risk for ciTBI). Given the absence of high-risk findings and reassuring exam, CT was deferred in favor of ED observation with serial neurologic assessments. Family counseled regarding small residual risk of intracranial injury versus radiation exposure from CT, and agreed with observation.
+
+Patient observed in the ED for [__ hours] with stable vitals, normal serial neuro exams, and no further vomiting or changes in behavior. Findings remained reassuring. Discussed warning signs and need for prompt return if headache, vomiting, confusion, seizure, lethargy, or any new neurologic deficits develop. Discharged home in stable condition with follow-up arranged with pediatrician within 24–48 hours.</pre></article><article class="rounded-2xl bg-white border border-slate-200 shadow-soft p-4" draggable="true" aria-grabbed="false">
+
+        <div class="flex items-start gap-2">
+
+          <div class="flex-1 min-w-0">
+
+            <h3 class="text-base font-semibold leading-tight break-words">PECARN — CT Recommended</h3>
+
+            <div class="mt-1 flex items-center gap-2 text-xs text-muted">
+
+              <span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-bg2/60 border border-slate-200">Pediatrics</span>
+
+              <span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-white border border-slate-200">Trauma</span>
+
+              <span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-white border border-slate-200">Dot: .pedspecarn3</span>
+
+              
+
+            </div>
+
+          </div>
+
+          <div class="shrink-0 flex gap-1">
+
+            <button class="focus-ring copy px-3 py-2 rounded-xl border border-slate-200 bg-white hover:bg-slate-50 text-sm">Copy</button>
+
+            <button class="focus-ring edit px-3 py-2 rounded-xl border border-slate-200 bg-white hover:bg-slate-50 text-sm">Edit</button>
+
+            <button class="focus-ring del  px-3 py-2 rounded-xl border border-slate-200 bg-white hover:bg-slate-50 text-sm">Del</button>
+
+          </div>
+
+        </div>
+
+        <pre class="macro-body mt-3 text-[13.5px] leading-5 border border-slate-200 rounded-xl p-3 overflow-auto">MDM — Pediatric Head Trauma (CT Recommended)
+
+PECARN CALCULATIONS:
+Age group: [&lt;2 years / ≥2 years]  
+Mechanism of injury: [describe]  
+PECARN ciTBI estimated risk:  
+ &lt; 2 years ≈ 4.4 %  ≥ 2 years ≈ 4.3 %  
+High-risk feature(s) present: [list specific findings]  
+ - Abnormal mental status or GCS &lt; 15 at 2 hours  
+ - Palpable skull fracture (&lt; 2 y) / Signs of basilar skull fracture (≥ 2 y)  
+ - Severe mechanism (fall &gt; 3 ft &lt; 2 y / &gt; 5 ft ≥ 2 y; pedestrian / bicyclist struck; high-impact object)  
+ - Repeated vomiting / severe headache  
+ - Any focal neuro deficit or seizure  
+
+---
+
+Patient presented after [mechanism] with [concerning symptom: vomiting, altered mental status, skull defect, or severe headache]. On arrival, GCS [15 / less if applicable]; pupils equal and reactive; no significant external bleeding. Exam revealed [palpable frontal step-off / battle sign / periorbital ecchymosis / hematoma description]. Neurologic exam otherwise intact. Vitals stable.
+
+By PECARN criteria, presence of [high-risk finding] places patient in the imaging pathway with ≈4 % risk for ciTBI. Discussed the evidence-based recommendation for head CT to exclude intracranial injury and reviewed the benefits and radiation risks with the parent. Consent obtained for imaging after shared decision-making.
+
+Patient remained hemodynamically stable and interactive while awaiting CT. Imaging [negative / demonstrated ___]. If negative, findings consistent with minor head injury without intracranial pathology; family counseled on home observation and return precautions. If positive, neurosurgery and pediatrics consulted for management and admission as indicated. All results and follow-up instructions reviewed with caregiver who verbalized understanding.</pre></article></section>
 
         <div id="empty" class="mt-10 text-center text-muted hidden">
 
@@ -799,10 +962,10 @@ Return precautions discussed, including but not limited to: worsening or persist
     "title": "PECARN — No CT, No Observation",
     "category": "Pediatrics",
     "subcategory": "Trauma",
-    "dot": ".pecarn1",
+    "dot": ".pedspecarn1",
     "body": "MDM — Pediatric Head Trauma (No CT, No Observation)\n\nPECARN CALCULATIONS:\nAge group: [<2 years / ≥2 years]\nMechanism of injury: [describe]\nPECARN ciTBI estimated risk:\n    <2 years: <0.02 %\n    ≥2 years: <0.05 %\nAll predictors negative:\n    - Normal mental status, GCS 15\n    - No loss of consciousness (≥2 y: any; <2 y: ≥5 s)\n    - No palpable or basilar skull fracture\n    - No non-frontal scalp hematoma (<2 y)\n    - No vomiting, severe headache, or severe mechanism\n\n---\n\nPatient presented after minor head trauma with no loss of consciousness, vomiting, or abnormal behavior. On examination, child appeared well, alert, and interactive for age with normal tone, strength, and coordination. Pupils equal and reactive; no scalp hematoma or tenderness; no step-off or signs of basilar skull fracture. Vitals stable and age-appropriate. No focal neurologic deficits.\n\nBased on the PECARN decision rule, patient meets very-low-risk criteria for clinically important traumatic brain injury (estimated risk <0.05%). Given the absence of concerning features and a reassuring neurologic exam, no head CT or prolonged observation is indicated. Discussed the extremely low probability of intracranial injury and risks associated with radiation exposure with the parent, who agreed with home observation. All questions answered and expectations reviewed.\n\nPatient remained well-appearing and interactive during ED course. Discharged home with strict return precautions for persistent vomiting, worsening headache, confusion, seizure, focal deficits, lethargy, or poor oral intake. Advised follow-up with pediatrician within 48 hours or sooner if concerns arise.",
     "createdAt": 1761533643274,
-    "updatedAt": 1761533748693,
+    "updatedAt": 1761546565433,
     "pinned": false
   },
   {
@@ -810,10 +973,10 @@ Return precautions discussed, including but not limited to: worsening or persist
     "title": "PECARN — No CT, Observation",
     "category": "Pediatrics",
     "subcategory": "Trauma",
-    "dot": ".pecarn2",
+    "dot": ".pedspecarn2",
     "body": "MDM — Pediatric Head Trauma (Observation without CT)\n\nPECARN CALCULATIONS:\nAge group: [<2 years / ≥2 years]  \nMechanism of injury: [describe]  \nPECARN ciTBI estimated risk:  \n < 2 years ≈ 0.9 %  ≥ 2 years ≈ 0.8 %  \nLow-risk group with intermediate factor(s): [list specific factor(s)]  \n - Normal mental status / GCS 15  \n - No palpable or basilar skull fracture  \n - No signs of focal neurologic deficit  \n - May have isolated vomiting / brief LOC / mild headache / frontal hematoma  \n - Mechanism not severe  \n\n---\n\nPatient presented after minor head trauma with [brief loss of consciousness / single vomit / mild headache] and otherwise normal behavior per caregiver. Exam revealed a well-appearing, interactive child with normal pupils, tone, strength, and coordination. No skull tenderness or step-off appreciated; tympanic membranes clear; no basilar signs. Vitals stable and appropriate for age.\n\nUsing the PECARN rule, patient falls within the low-risk “observation” zone (< 1 % risk for ciTBI). Given the absence of high-risk findings and reassuring exam, CT was deferred in favor of ED observation with serial neurologic assessments. Family counseled regarding small residual risk of intracranial injury versus radiation exposure from CT, and agreed with observation.\n\nPatient observed in the ED for [__ hours] with stable vitals, normal serial neuro exams, and no further vomiting or changes in behavior. Findings remained reassuring. Discussed warning signs and need for prompt return if headache, vomiting, confusion, seizure, lethargy, or any new neurologic deficits develop. Discharged home in stable condition with follow-up arranged with pediatrician within 24–48 hours.",
     "createdAt": 1761533643275,
-    "updatedAt": 1761533736542,
+    "updatedAt": 1761546574015,
     "pinned": false
   },
   {
@@ -821,10 +984,10 @@ Return precautions discussed, including but not limited to: worsening or persist
     "title": "PECARN — CT Recommended",
     "category": "Pediatrics",
     "subcategory": "Trauma",
-    "dot": ".pecarn3",
+    "dot": ".pedspecarn3",
     "body": "MDM — Pediatric Head Trauma (CT Recommended)\n\nPECARN CALCULATIONS:\nAge group: [<2 years / ≥2 years]  \nMechanism of injury: [describe]  \nPECARN ciTBI estimated risk:  \n < 2 years ≈ 4.4 %  ≥ 2 years ≈ 4.3 %  \nHigh-risk feature(s) present: [list specific findings]  \n - Abnormal mental status or GCS < 15 at 2 hours  \n - Palpable skull fracture (< 2 y) / Signs of basilar skull fracture (≥ 2 y)  \n - Severe mechanism (fall > 3 ft < 2 y / > 5 ft ≥ 2 y; pedestrian / bicyclist struck; high-impact object)  \n - Repeated vomiting / severe headache  \n - Any focal neuro deficit or seizure  \n\n---\n\nPatient presented after [mechanism] with [concerning symptom: vomiting, altered mental status, skull defect, or severe headache]. On arrival, GCS [15 / less if applicable]; pupils equal and reactive; no significant external bleeding. Exam revealed [palpable frontal step-off / battle sign / periorbital ecchymosis / hematoma description]. Neurologic exam otherwise intact. Vitals stable.\n\nBy PECARN criteria, presence of [high-risk finding] places patient in the imaging pathway with ≈4 % risk for ciTBI. Discussed the evidence-based recommendation for head CT to exclude intracranial injury and reviewed the benefits and radiation risks with the parent. Consent obtained for imaging after shared decision-making.\n\nPatient remained hemodynamically stable and interactive while awaiting CT. Imaging [negative / demonstrated ___]. If negative, findings consistent with minor head injury without intracranial pathology; family counseled on home observation and return precautions. If positive, neurosurgery and pediatrics consulted for management and admission as indicated. All results and follow-up instructions reviewed with caregiver who verbalized understanding.",
     "createdAt": 1761533643276,
-    "updatedAt": 1761533724344,
+    "updatedAt": 1761546583270,
     "pinned": false
   },
   {
