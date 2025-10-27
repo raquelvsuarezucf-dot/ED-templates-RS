@@ -221,7 +221,7 @@
 
   <!-- =================== APP =================== -->
 
-  <div id="toast" role="status" aria-live="polite" class="fixed left-1/2 -translate-x-1/2 top-4 z-50 px-4 py-2 rounded-xl bg-ink text-white text-sm shadow-soft toast-pop" style="display: none;">Synced to GitHub</div>
+  <div id="toast" role="status" aria-live="polite" class="fixed left-1/2 -translate-x-1/2 top-4 z-50 px-4 py-2 rounded-xl bg-ink text-white text-sm shadow-soft toast-pop" style="display: none;">Repository settings saved</div>
 
   <!-- Choose modal -->
 
@@ -2320,6 +2320,100 @@ Discussed clinical status and risk of bilirubin neurotoxicity with caregivers; f
       }
     })();
   }, true);
+})();
+</script>
+
+
+<script>
+// ---- RVSRED State export/import + GitHub backup ----
+(function(){
+  function dumpLocalStorage() {
+    const out = {};
+    for (let i = 0; i < localStorage.length; i++) {
+      const k = localStorage.key(i);
+      out[k] = localStorage.getItem(k);
+    }
+    return out;
+  }
+  function sanitizedState(){
+    const all = dumpLocalStorage();
+    delete all['repoCfg'];
+    delete all['syncOnSave'];
+    delete all['__lastStateTs'];
+    return {
+      meta: {
+        app: 'RVSRED',
+        version: (window.APP_VERSION || '1.0.0'),
+        savedAt: new Date().toISOString()
+      },
+      storage: all
+    };
+  }
+  window.embedRvsredState = function(html){
+    try{
+      const state = sanitizedState();
+      const json = JSON.stringify(state);
+      const tag  = `<script id="rvsred-state" type="application/json">${json.replace(/</g,"\\u003c")}</script>`;
+      if (html.includes('id="rvsred-state"')) {
+        html = html.replace(/<script id="rvsred-state" [^="">]*>.*?<\/script>/s, tag);
+      } else {
+        html = html.replace('</head>', tag + '\\n</head>');
+      }
+      return html;
+    }catch(e){
+      return html;
+    }
+  };
+  window.hydrateFromEmbeddedState = function(force=false){
+    try{
+      const el = document.getElementById('rvsred-state');
+      if (!el) return false;
+      const parsed = JSON.parse(el.textContent || '{}');
+      const tsNew = parsed?.meta?.savedAt ? Date.parse(parsed.meta.savedAt) : 0;
+      const tsExisting = Date.parse(localStorage.getItem('__lastStateTs') || 0);
+      if (force || !localStorage.length || tsNew > tsExisting){
+        const map = parsed.storage || {};
+        Object.keys(map).forEach(k => {
+          if (k === 'repoCfg' || k === 'syncOnSave') return;
+          localStorage.setItem(k, map[k]);
+        });
+        localStorage.setItem('__lastStateTs', parsed?.meta?.savedAt || new Date().toISOString());
+        return true;
+      }
+      return false;
+    }catch(e){
+      return false;
+    }
+  };
+  document.addEventListener('DOMContentLoaded', function(){
+    try{ window.hydrateFromEmbeddedState(false); }catch(e){}
+  });
+  if (typeof window.buildHtmlSnapshot === 'function') {
+    const _orig = window.buildHtmlSnapshot;
+    window.buildHtmlSnapshot = function(){
+      const raw = _orig();
+      return window.embedRvsredState(raw);
+    };
+  }
+  if (typeof window.githubSyncAutoSha === 'function') {
+    const _sync = window.githubSyncAutoSha;
+    window.githubSyncAutoSha = async function(opts){
+      const res = await _sync(opts);
+      try {
+        const state = sanitizedState();
+        const content = JSON.stringify(state, null, 2);
+        const dir = (opts.dir && opts.dir !== '/' ? String(opts.dir).replace(/^\/+|\/+$/g,'') + '/data' : 'data');
+        await _sync({
+          ...opts,
+          filename: 'app-state.json',
+          dir,
+          content,
+          message: 'Backup RVSRED state'
+        });
+      } catch(e){ /* non-fatal */ }
+      return res;
+    }
+  }
 })();
 </script>
 
