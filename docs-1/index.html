@@ -431,7 +431,7 @@
 
               <button id="addBtn" role="menuitem" class="focus-ring w-full text-left px-3 py-2 rounded-xl hover:bg-slate-50 text-sm">New Macro</button>
 
-            <div style="border-top: 1px solid rgba(15, 38, 64, 0.08); margin: 0.5rem 0px;"></div><button type="button" style="display: block; width: 100%; text-align: left; padding: 0.5rem 0.75rem; border-radius: 0.75rem; cursor: pointer; border: 1px solid transparent; background: transparent;">Force Sync (Auto‑SHA)</button><div style="border-top: 1px solid rgba(15, 38, 64, 0.08); margin: 0.5rem 0px;"></div><button type="button" style="display: block; width: 100%; text-align: left; padding: 0.5rem 0.75rem; border-radius: 0.75rem; cursor: pointer; border: 1px solid transparent; background: transparent;">Force Sync (Auto‑SHA)</button></div>
+            <div style="border-top: 1px solid rgba(15, 38, 64, 0.08); margin: 0.5rem 0px;"></div><button type="button" style="display: block; width: 100%; text-align: left; padding: 0.5rem 0.75rem; border-radius: 0.75rem; cursor: pointer; border: 1px solid transparent; background: transparent;" id="rvs-force-sync">Force Sync (Auto‑SHA)</button><div style="border-top: 1px solid rgba(15, 38, 64, 0.08); margin: 0.5rem 0px;"></div></div>
 
           </div>
 
@@ -2708,7 +2708,72 @@ Discussed clinical status and risk of bilirubin neurotoxicity with caregivers; f
       }
       return html;
     }catch(e){
-      return "<!doctype html><html><head><meta charset='utf-8'></head><body>Snapshot Fallback</body></html>";
+      return "<!doctype html><html><head><meta charset='utf-8'></head><body>Snapshot Fallback
+<!-- RVS: Force Sync dedupe + guaranteed snapshot routing -->
+<script>
+(function(){
+  // Ensure a safe snapshot helper exists
+  if (typeof window.getSnapshotSafe !== 'function'){
+    window.getSnapshotSafe = async function(){
+      try{ if (typeof buildHtmlSnapshot === 'function') return buildHtmlSnapshot(); }catch(e){}
+      try{ if (typeof exportHtmlSnapshot === 'function') return exportHtmlSnapshot(); }catch(e){}
+      try{
+        var html = new XMLSerializer().serializeToString(document);
+        if (!/^<!DOCTYPE/i.test(html)) html = "<!doctype html>\n" + html;
+        if (typeof embedRvsredState === 'function') {
+          try { html = embedRvsredState(html); } catch(e){}
+        }
+        return html;
+      }catch(e){
+        return "<!doctype html><html><head><meta charset='utf-8'></head><body>Snapshot Fallback</body></html>";
+      }
+    };
+  }
+
+  function installDedupe(){
+    var menu = document.getElementById('settingsMenu') || document.querySelector('[role="menu"]');
+    if (!menu) return;
+    var items = Array.from(menu.querySelectorAll('button, a, [role="menuitem"]'))
+      .filter(el => /force sync/i.test((el.textContent||'')));
+    // Remove duplicates, keep first
+    if (items.length > 1){
+      items.slice(1).forEach(el => el.remove());
+    }
+    if (items[0]) items[0].id = 'rvs-force-sync';
+  }
+
+  // When Settings opens, dedupe the menu
+  document.addEventListener('click', function(e){
+    const btn = e.target.closest('#settingsBtn, [aria-haspopup="menu"], [data-settings]');
+    if (!btn) return;
+    setTimeout(installDedupe, 80);
+  }, true);
+
+  // Also run once on load (in case menu is present in DOM)
+  document.addEventListener('DOMContentLoaded', installDedupe);
+
+  // Route Force Sync clicks to our locked uploader and stop legacy handlers
+  document.addEventListener('click', function(e){
+    const el = e.target.closest('#rvs-force-sync, button, a, [role="menuitem"]');
+    if (!el) return;
+    const txt = (el.textContent || '').toLowerCase();
+    if (!/force sync/.test(txt)) return;
+    e.preventDefault(); e.stopPropagation();
+    if (typeof window.syncToGitHubLocked !== 'function'){
+      alert('Sync not ready — open Repository Settings and validate access.');
+      return;
+    }
+    (async ()=>{
+      const html = await window.getSnapshotSafe();
+      await window.syncToGitHubLocked({ message: 'Force sync from app', content: html });
+      if (typeof showToast === 'function') showToast('✅ Synced to GitHub');
+      else alert('✅ Synced to GitHub');
+    })().catch(err => alert(err.message || String(err)));
+  }, true);
+})();
+</script>
+
+";
     }
   }
 
@@ -2728,7 +2793,7 @@ Discussed clinical status and risk of bilirubin neurotoxicity with caregivers; f
         a.style.display = 'none';
         document.body.appendChild(a);
         a.click();
-        setTimeout(()=>{ URL.revokeObjectURL(a.href); a.remove(); }, 200);
+        setTimeout(()=&gt;{ URL.revokeObjectURL(a.href); a.remove(); }, 200);
       }catch(e){}
 
       // Then sync to GitHub using our locked uploader
@@ -2737,9 +2802,9 @@ Discussed clinical status and risk of bilirubin neurotoxicity with caregivers; f
       }
       toast('✅ Synced');
     }catch(err){
-      alert(err && err.message ? err.message : String(err));
+      alert(err &amp;&amp; err.message ? err.message : String(err));
     }finally{
-      setTimeout(()=>{ SAVE_SYNC_LOCK = false; }, 500);
+      setTimeout(()=&gt;{ SAVE_SYNC_LOCK = false; }, 500);
     }
   }
 
@@ -2759,6 +2824,71 @@ Discussed clinical status and risk of bilirubin neurotoxicity with caregivers; f
   document.addEventListener('rvs:save', function(){
     smartSaveAndSync();
   });
+})();
+
+
+
+<!-- RVS: Force Sync dedupe + guaranteed snapshot routing -->
+<script>
+(function(){
+  // Ensure a safe snapshot helper exists
+  if (typeof window.getSnapshotSafe !== 'function'){
+    window.getSnapshotSafe = async function(){
+      try{ if (typeof buildHtmlSnapshot === 'function') return buildHtmlSnapshot(); }catch(e){}
+      try{ if (typeof exportHtmlSnapshot === 'function') return exportHtmlSnapshot(); }catch(e){}
+      try{
+        var html = new XMLSerializer().serializeToString(document);
+        if (!/^<!DOCTYPE/i.test(html)) html = "<!doctype html>\n" + html;
+        if (typeof embedRvsredState === 'function') {
+          try { html = embedRvsredState(html); } catch(e){}
+        }
+        return html;
+      }catch(e){
+        return "<!doctype html><html><head><meta charset='utf-8'></head><body>Snapshot Fallback</body></html>";
+      }
+    };
+  }
+
+  function installDedupe(){
+    var menu = document.getElementById('settingsMenu') || document.querySelector('[role="menu"]');
+    if (!menu) return;
+    var items = Array.from(menu.querySelectorAll('button, a, [role="menuitem"]'))
+      .filter(el => /force sync/i.test((el.textContent||'')));
+    // Remove duplicates, keep first
+    if (items.length > 1){
+      items.slice(1).forEach(el => el.remove());
+    }
+    if (items[0]) items[0].id = 'rvs-force-sync';
+  }
+
+  // When Settings opens, dedupe the menu
+  document.addEventListener('click', function(e){
+    const btn = e.target.closest('#settingsBtn, [aria-haspopup="menu"], [data-settings]');
+    if (!btn) return;
+    setTimeout(installDedupe, 80);
+  }, true);
+
+  // Also run once on load (in case menu is present in DOM)
+  document.addEventListener('DOMContentLoaded', installDedupe);
+
+  // Route Force Sync clicks to our locked uploader and stop legacy handlers
+  document.addEventListener('click', function(e){
+    const el = e.target.closest('#rvs-force-sync, button, a, [role="menuitem"]');
+    if (!el) return;
+    const txt = (el.textContent || '').toLowerCase();
+    if (!/force sync/.test(txt)) return;
+    e.preventDefault(); e.stopPropagation();
+    if (typeof window.syncToGitHubLocked !== 'function'){
+      alert('Sync not ready — open Repository Settings and validate access.');
+      return;
+    }
+    (async ()=>{
+      const html = await window.getSnapshotSafe();
+      await window.syncToGitHubLocked({ message: 'Force sync from app', content: html });
+      if (typeof showToast === 'function') showToast('✅ Synced to GitHub');
+      else alert('✅ Synced to GitHub');
+    })().catch(err => alert(err.message || String(err)));
+  }, true);
 })();
 </script>
 
@@ -2960,7 +3090,72 @@ Discussed clinical status and risk of bilirubin neurotoxicity with caregivers; f
       }
       return html;
     }catch(e){
-      return "<!doctype html><html><head><meta charset='utf-8'></head><body>Snapshot Fallback</body></html>";
+      return "<!doctype html><html><head><meta charset='utf-8'></head><body>Snapshot Fallback
+<!-- RVS: Force Sync dedupe + guaranteed snapshot routing -->
+<script>
+(function(){
+  // Ensure a safe snapshot helper exists
+  if (typeof window.getSnapshotSafe !== 'function'){
+    window.getSnapshotSafe = async function(){
+      try{ if (typeof buildHtmlSnapshot === 'function') return buildHtmlSnapshot(); }catch(e){}
+      try{ if (typeof exportHtmlSnapshot === 'function') return exportHtmlSnapshot(); }catch(e){}
+      try{
+        var html = new XMLSerializer().serializeToString(document);
+        if (!/^<!DOCTYPE/i.test(html)) html = "<!doctype html>\n" + html;
+        if (typeof embedRvsredState === 'function') {
+          try { html = embedRvsredState(html); } catch(e){}
+        }
+        return html;
+      }catch(e){
+        return "<!doctype html><html><head><meta charset='utf-8'></head><body>Snapshot Fallback</body></html>";
+      }
+    };
+  }
+
+  function installDedupe(){
+    var menu = document.getElementById('settingsMenu') || document.querySelector('[role="menu"]');
+    if (!menu) return;
+    var items = Array.from(menu.querySelectorAll('button, a, [role="menuitem"]'))
+      .filter(el => /force sync/i.test((el.textContent||'')));
+    // Remove duplicates, keep first
+    if (items.length > 1){
+      items.slice(1).forEach(el => el.remove());
+    }
+    if (items[0]) items[0].id = 'rvs-force-sync';
+  }
+
+  // When Settings opens, dedupe the menu
+  document.addEventListener('click', function(e){
+    const btn = e.target.closest('#settingsBtn, [aria-haspopup="menu"], [data-settings]');
+    if (!btn) return;
+    setTimeout(installDedupe, 80);
+  }, true);
+
+  // Also run once on load (in case menu is present in DOM)
+  document.addEventListener('DOMContentLoaded', installDedupe);
+
+  // Route Force Sync clicks to our locked uploader and stop legacy handlers
+  document.addEventListener('click', function(e){
+    const el = e.target.closest('#rvs-force-sync, button, a, [role="menuitem"]');
+    if (!el) return;
+    const txt = (el.textContent || '').toLowerCase();
+    if (!/force sync/.test(txt)) return;
+    e.preventDefault(); e.stopPropagation();
+    if (typeof window.syncToGitHubLocked !== 'function'){
+      alert('Sync not ready — open Repository Settings and validate access.');
+      return;
+    }
+    (async ()=>{
+      const html = await window.getSnapshotSafe();
+      await window.syncToGitHubLocked({ message: 'Force sync from app', content: html });
+      if (typeof showToast === 'function') showToast('✅ Synced to GitHub');
+      else alert('✅ Synced to GitHub');
+    })().catch(err => alert(err.message || String(err)));
+  }, true);
+})();
+</script>
+
+";
     }
   }
 
@@ -2980,7 +3175,7 @@ Discussed clinical status and risk of bilirubin neurotoxicity with caregivers; f
         a.style.display = 'none';
         document.body.appendChild(a);
         a.click();
-        setTimeout(()=>{ URL.revokeObjectURL(a.href); a.remove(); }, 200);
+        setTimeout(()=&gt;{ URL.revokeObjectURL(a.href); a.remove(); }, 200);
       }catch(e){}
 
       // Then sync to GitHub using our locked uploader
@@ -2989,9 +3184,9 @@ Discussed clinical status and risk of bilirubin neurotoxicity with caregivers; f
       }
       toast('✅ Synced');
     }catch(err){
-      alert(err && err.message ? err.message : String(err));
+      alert(err &amp;&amp; err.message ? err.message : String(err));
     }finally{
-      setTimeout(()=>{ SAVE_SYNC_LOCK = false; }, 500);
+      setTimeout(()=&gt;{ SAVE_SYNC_LOCK = false; }, 500);
     }
   }
 
@@ -3011,6 +3206,71 @@ Discussed clinical status and risk of bilirubin neurotoxicity with caregivers; f
   document.addEventListener('rvs:save', function(){
     smartSaveAndSync();
   });
+})();
+
+
+
+<!-- RVS: Force Sync dedupe + guaranteed snapshot routing -->
+<script>
+(function(){
+  // Ensure a safe snapshot helper exists
+  if (typeof window.getSnapshotSafe !== 'function'){
+    window.getSnapshotSafe = async function(){
+      try{ if (typeof buildHtmlSnapshot === 'function') return buildHtmlSnapshot(); }catch(e){}
+      try{ if (typeof exportHtmlSnapshot === 'function') return exportHtmlSnapshot(); }catch(e){}
+      try{
+        var html = new XMLSerializer().serializeToString(document);
+        if (!/^<!DOCTYPE/i.test(html)) html = "<!doctype html>\n" + html;
+        if (typeof embedRvsredState === 'function') {
+          try { html = embedRvsredState(html); } catch(e){}
+        }
+        return html;
+      }catch(e){
+        return "<!doctype html><html><head><meta charset='utf-8'></head><body>Snapshot Fallback</body></html>";
+      }
+    };
+  }
+
+  function installDedupe(){
+    var menu = document.getElementById('settingsMenu') || document.querySelector('[role="menu"]');
+    if (!menu) return;
+    var items = Array.from(menu.querySelectorAll('button, a, [role="menuitem"]'))
+      .filter(el => /force sync/i.test((el.textContent||'')));
+    // Remove duplicates, keep first
+    if (items.length > 1){
+      items.slice(1).forEach(el => el.remove());
+    }
+    if (items[0]) items[0].id = 'rvs-force-sync';
+  }
+
+  // When Settings opens, dedupe the menu
+  document.addEventListener('click', function(e){
+    const btn = e.target.closest('#settingsBtn, [aria-haspopup="menu"], [data-settings]');
+    if (!btn) return;
+    setTimeout(installDedupe, 80);
+  }, true);
+
+  // Also run once on load (in case menu is present in DOM)
+  document.addEventListener('DOMContentLoaded', installDedupe);
+
+  // Route Force Sync clicks to our locked uploader and stop legacy handlers
+  document.addEventListener('click', function(e){
+    const el = e.target.closest('#rvs-force-sync, button, a, [role="menuitem"]');
+    if (!el) return;
+    const txt = (el.textContent || '').toLowerCase();
+    if (!/force sync/.test(txt)) return;
+    e.preventDefault(); e.stopPropagation();
+    if (typeof window.syncToGitHubLocked !== 'function'){
+      alert('Sync not ready — open Repository Settings and validate access.');
+      return;
+    }
+    (async ()=>{
+      const html = await window.getSnapshotSafe();
+      await window.syncToGitHubLocked({ message: 'Force sync from app', content: html });
+      if (typeof showToast === 'function') showToast('✅ Synced to GitHub');
+      else alert('✅ Synced to GitHub');
+    })().catch(err => alert(err.message || String(err)));
+  }, true);
 })();
 </script>
 
@@ -3095,7 +3355,72 @@ Discussed clinical status and risk of bilirubin neurotoxicity with caregivers; f
       }
       return html;
     }catch(e){
-      return "<!doctype html><html><head><meta charset='utf-8'></head><body>Snapshot Fallback</body></html>";
+      return "<!doctype html><html><head><meta charset='utf-8'></head><body>Snapshot Fallback
+<!-- RVS: Force Sync dedupe + guaranteed snapshot routing -->
+<script>
+(function(){
+  // Ensure a safe snapshot helper exists
+  if (typeof window.getSnapshotSafe !== 'function'){
+    window.getSnapshotSafe = async function(){
+      try{ if (typeof buildHtmlSnapshot === 'function') return buildHtmlSnapshot(); }catch(e){}
+      try{ if (typeof exportHtmlSnapshot === 'function') return exportHtmlSnapshot(); }catch(e){}
+      try{
+        var html = new XMLSerializer().serializeToString(document);
+        if (!/^<!DOCTYPE/i.test(html)) html = "<!doctype html>\n" + html;
+        if (typeof embedRvsredState === 'function') {
+          try { html = embedRvsredState(html); } catch(e){}
+        }
+        return html;
+      }catch(e){
+        return "<!doctype html><html><head><meta charset='utf-8'></head><body>Snapshot Fallback</body></html>";
+      }
+    };
+  }
+
+  function installDedupe(){
+    var menu = document.getElementById('settingsMenu') || document.querySelector('[role="menu"]');
+    if (!menu) return;
+    var items = Array.from(menu.querySelectorAll('button, a, [role="menuitem"]'))
+      .filter(el => /force sync/i.test((el.textContent||'')));
+    // Remove duplicates, keep first
+    if (items.length > 1){
+      items.slice(1).forEach(el => el.remove());
+    }
+    if (items[0]) items[0].id = 'rvs-force-sync';
+  }
+
+  // When Settings opens, dedupe the menu
+  document.addEventListener('click', function(e){
+    const btn = e.target.closest('#settingsBtn, [aria-haspopup="menu"], [data-settings]');
+    if (!btn) return;
+    setTimeout(installDedupe, 80);
+  }, true);
+
+  // Also run once on load (in case menu is present in DOM)
+  document.addEventListener('DOMContentLoaded', installDedupe);
+
+  // Route Force Sync clicks to our locked uploader and stop legacy handlers
+  document.addEventListener('click', function(e){
+    const el = e.target.closest('#rvs-force-sync, button, a, [role="menuitem"]');
+    if (!el) return;
+    const txt = (el.textContent || '').toLowerCase();
+    if (!/force sync/.test(txt)) return;
+    e.preventDefault(); e.stopPropagation();
+    if (typeof window.syncToGitHubLocked !== 'function'){
+      alert('Sync not ready — open Repository Settings and validate access.');
+      return;
+    }
+    (async ()=>{
+      const html = await window.getSnapshotSafe();
+      await window.syncToGitHubLocked({ message: 'Force sync from app', content: html });
+      if (typeof showToast === 'function') showToast('✅ Synced to GitHub');
+      else alert('✅ Synced to GitHub');
+    })().catch(err => alert(err.message || String(err)));
+  }, true);
+})();
+</script>
+
+";
     }
   }
 
@@ -3115,7 +3440,7 @@ Discussed clinical status and risk of bilirubin neurotoxicity with caregivers; f
         a.style.display = 'none';
         document.body.appendChild(a);
         a.click();
-        setTimeout(()=>{ URL.revokeObjectURL(a.href); a.remove(); }, 200);
+        setTimeout(()=&gt;{ URL.revokeObjectURL(a.href); a.remove(); }, 200);
       }catch(e){}
 
       // Then sync to GitHub using our locked uploader
@@ -3124,9 +3449,9 @@ Discussed clinical status and risk of bilirubin neurotoxicity with caregivers; f
       }
       toast('✅ Synced');
     }catch(err){
-      alert(err && err.message ? err.message : String(err));
+      alert(err &amp;&amp; err.message ? err.message : String(err));
     }finally{
-      setTimeout(()=>{ SAVE_SYNC_LOCK = false; }, 500);
+      setTimeout(()=&gt;{ SAVE_SYNC_LOCK = false; }, 500);
     }
   }
 
@@ -3146,6 +3471,71 @@ Discussed clinical status and risk of bilirubin neurotoxicity with caregivers; f
   document.addEventListener('rvs:save', function(){
     smartSaveAndSync();
   });
+})();
+
+
+
+<!-- RVS: Force Sync dedupe + guaranteed snapshot routing -->
+<script>
+(function(){
+  // Ensure a safe snapshot helper exists
+  if (typeof window.getSnapshotSafe !== 'function'){
+    window.getSnapshotSafe = async function(){
+      try{ if (typeof buildHtmlSnapshot === 'function') return buildHtmlSnapshot(); }catch(e){}
+      try{ if (typeof exportHtmlSnapshot === 'function') return exportHtmlSnapshot(); }catch(e){}
+      try{
+        var html = new XMLSerializer().serializeToString(document);
+        if (!/^<!DOCTYPE/i.test(html)) html = "<!doctype html>\n" + html;
+        if (typeof embedRvsredState === 'function') {
+          try { html = embedRvsredState(html); } catch(e){}
+        }
+        return html;
+      }catch(e){
+        return "<!doctype html><html><head><meta charset='utf-8'></head><body>Snapshot Fallback</body></html>";
+      }
+    };
+  }
+
+  function installDedupe(){
+    var menu = document.getElementById('settingsMenu') || document.querySelector('[role="menu"]');
+    if (!menu) return;
+    var items = Array.from(menu.querySelectorAll('button, a, [role="menuitem"]'))
+      .filter(el => /force sync/i.test((el.textContent||'')));
+    // Remove duplicates, keep first
+    if (items.length > 1){
+      items.slice(1).forEach(el => el.remove());
+    }
+    if (items[0]) items[0].id = 'rvs-force-sync';
+  }
+
+  // When Settings opens, dedupe the menu
+  document.addEventListener('click', function(e){
+    const btn = e.target.closest('#settingsBtn, [aria-haspopup="menu"], [data-settings]');
+    if (!btn) return;
+    setTimeout(installDedupe, 80);
+  }, true);
+
+  // Also run once on load (in case menu is present in DOM)
+  document.addEventListener('DOMContentLoaded', installDedupe);
+
+  // Route Force Sync clicks to our locked uploader and stop legacy handlers
+  document.addEventListener('click', function(e){
+    const el = e.target.closest('#rvs-force-sync, button, a, [role="menuitem"]');
+    if (!el) return;
+    const txt = (el.textContent || '').toLowerCase();
+    if (!/force sync/.test(txt)) return;
+    e.preventDefault(); e.stopPropagation();
+    if (typeof window.syncToGitHubLocked !== 'function'){
+      alert('Sync not ready — open Repository Settings and validate access.');
+      return;
+    }
+    (async ()=>{
+      const html = await window.getSnapshotSafe();
+      await window.syncToGitHubLocked({ message: 'Force sync from app', content: html });
+      if (typeof showToast === 'function') showToast('✅ Synced to GitHub');
+      else alert('✅ Synced to GitHub');
+    })().catch(err => alert(err.message || String(err)));
+  }, true);
 })();
 </script>
 
