@@ -6,6 +6,10 @@
 
   <title>EM Templates</title>
 
+  <!-- favicon (inline) -->
+
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' ry='14' fill='%231f3850'/%3E%3Ctext x='50%' y='54%' text-anchor='middle' font-size='30' fill='white' font-family='system-ui,Segoe UI,Helvetica,Arial,sans-serif'%3EEM%3C/text%3E%3C/svg%3E">
+
   <script src="https://cdn.tailwindcss.com"></script>
 
   <script>
@@ -54,11 +58,29 @@
 
     :root { color-scheme: light; }
 
-    body { background: #eaf1fb; }
+    /* 15% bigger base */
+
+    body {
+
+      background: #eaf1fb;
+
+      font-size: 15px; /* tailwind sm ~14px, this is a touch bigger */
+
+    }
 
     .macro-card { background: #1f3850; }
 
-    .macro-body { background: #e5e7eb; white-space: pre-wrap; }
+    .macro-body {
+
+      background: #e5e7eb;
+
+      white-space: pre-wrap;
+
+      font-size: 0.9rem; /* readable but smaller than titles */
+
+      line-height: 1.6;
+
+    }
 
     .settings-pop { display: none; }
 
@@ -70,9 +92,15 @@
 
     .cat-btn.drag-target { outline: 2px dashed #1E70C1; outline-offset: 2px; }
 
+    @media (max-width: 768px) {
+
+      #edit-modal > div { height: 90vh; }
+
+    }
+
   </style>
 
-<style>*, ::before, ::after{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position: ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgb(59 130 246 / 0.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: ;--tw-contain-size: ;--tw-contain-layout: ;--tw-contain-paint: ;--tw-contain-style: }::backdrop{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position: ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgb(59 130 246 / 0.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: ;--tw-contain-size: ;--tw-contain-layout: ;--tw-contain-paint: ;--tw-contain-style: }/* ! tailwindcss v3.4.17 | MIT License | https://tailwindcss.com */*,::after,::before{box-sizing:border-box;border-width:0;border-style:solid;border-color:#e5e7eb}::after,::before{--tw-content:''}:host,html{line-height:1.5;-webkit-text-size-adjust:100%;-moz-tab-size:4;tab-size:4;font-family:ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";font-feature-settings:normal;font-variation-settings:normal;-webkit-tap-highlight-color:transparent}body{margin:0;line-height:inherit}hr{height:0;color:inherit;border-top-width:1px}abbr:where([title]){-webkit-text-decoration:underline dotted;text-decoration:underline dotted}h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight:inherit}a{color:inherit;text-decoration:inherit}b,strong{font-weight:bolder}code,kbd,pre,samp{font-family:ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;font-feature-settings:normal;font-variation-settings:normal;font-size:1em}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sub{bottom:-.25em}sup{top:-.5em}table{text-indent:0;border-color:inherit;border-collapse:collapse}button,input,optgroup,select,textarea{font-family:inherit;font-feature-settings:inherit;font-variation-settings:inherit;font-size:100%;font-weight:inherit;line-height:inherit;letter-spacing:inherit;color:inherit;margin:0;padding:0}button,select{text-transform:none}button,input:where([type=button]),input:where([type=reset]),input:where([type=submit]){-webkit-appearance:button;background-color:transparent;background-image:none}:-moz-focusring{outline:auto}:-moz-ui-invalid{box-shadow:none}progress{vertical-align:baseline}::-webkit-inner-spin-button,::-webkit-outer-spin-button{height:auto}[type=search]{-webkit-appearance:textfield;outline-offset:-2px}::-webkit-search-decoration{-webkit-appearance:none}::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}summary{display:list-item}blockquote,dd,dl,figure,h1,h2,h3,h4,h5,h6,hr,p,pre{margin:0}fieldset{margin:0;padding:0}legend{padding:0}menu,ol,ul{list-style:none;margin:0;padding:0}dialog{padding:0}textarea{resize:vertical}input::placeholder,textarea::placeholder{opacity:1;color:#9ca3af}[role=button],button{cursor:pointer}:disabled{cursor:default}audio,canvas,embed,iframe,img,object,svg,video{display:block;vertical-align:middle}img,video{max-width:100%;height:auto}[hidden]:where(:not([hidden=until-found])){display:none}.pointer-events-none{pointer-events:none}.fixed{position:fixed}.absolute{position:absolute}.relative{position:relative}.inset-0{inset:0px}.bottom-4{bottom:1rem}.left-1\/2{left:50%}.left-3{left:0.75rem}.right-4{right:1rem}.top-16{top:4rem}.top-2\.5{top:0.625rem}.z-50{z-index:50}.z-\[999\]{z-index:999}.mb-1{margin-bottom:0.25rem}.mb-3{margin-bottom:0.75rem}.mt-1{margin-top:0.25rem}.mt-5{margin-top:1.25rem}.block{display:block}.flex{display:flex}.inline-flex{display:inline-flex}.grid{display:grid}.hidden{display:none}.h-10{height:2.5rem}.h-9{height:2.25rem}.h-full{height:100%}.max-h-\[90vh\]{max-height:90vh}.min-h-0{min-height:0px}.min-h-\[160px\]{min-height:160px}.min-h-screen{min-height:100vh}.w-10{width:2.5rem}.w-9{width:2.25rem}.w-\[240px\]{width:240px}.w-\[320px\]{width:320px}.w-\[min\(360px\2c 100\%\)\]{width:min(360px,100%)}.w-\[min\(680px\2c 100\%\)\]{width:min(680px,100%)}.w-\[min\(720px\2c 100\%\)\]{width:min(720px,100%)}.w-full{width:100%}.min-w-0{min-width:0px}.max-w-\[520px\]{max-width:520px}.flex-1{flex:1 1 0%}.shrink-0{flex-shrink:0}.-translate-x-1\/2{--tw-translate-x:-50%;transform:translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}.resize-none{resize:none}.grid-cols-2{grid-template-columns:repeat(2, minmax(0, 1fr))}.flex-col{flex-direction:column}.items-start{align-items:flex-start}.items-center{align-items:center}.justify-end{justify-content:flex-end}.justify-center{justify-content:center}.justify-between{justify-content:space-between}.gap-2{gap:0.5rem}.gap-3{gap:0.75rem}.gap-1{gap:0.25rem}.space-y-2 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(0.5rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(0.5rem * var(--tw-space-y-reverse))}.space-y-3 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(0.75rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(0.75rem * var(--tw-space-y-reverse))}.space-y-4 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(1rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(1rem * var(--tw-space-y-reverse))}.overflow-auto{overflow:auto}.overflow-hidden{overflow:hidden}.rounded-2xl{border-radius:1rem}.rounded-full{border-radius:9999px}.rounded-lg{border-radius:0.5rem}.rounded-md{border-radius:0.375rem}.rounded-b-2xl{border-bottom-right-radius:1rem;border-bottom-left-radius:1rem}.border{border-width:1px}.border-b{border-bottom-width:1px}.border-r{border-right-width:1px}.border-t{border-top-width:1px}.border-slate-200{--tw-border-opacity:1;border-color:rgb(226 232 240 / var(--tw-border-opacity, 1))}.border-slate-200\/70{border-color:rgb(226 232 240 / 0.7)}.bg-accent{--tw-bg-opacity:1;background-color:rgb(30 112 193 / var(--tw-bg-opacity, 1))}.bg-black\/30{background-color:rgb(0 0 0 / 0.3)}.bg-ink{--tw-bg-opacity:1;background-color:rgb(15 38 64 / var(--tw-bg-opacity, 1))}.bg-shell{--tw-bg-opacity:1;background-color:rgb(234 241 251 / var(--tw-bg-opacity, 1))}.bg-slate-100{--tw-bg-opacity:1;background-color:rgb(241 245 249 / var(--tw-bg-opacity, 1))}.bg-slate-900\/70{background-color:rgb(15 23 42 / 0.7)}.bg-white{--tw-bg-opacity:1;background-color:rgb(255 255 255 / var(--tw-bg-opacity, 1))}.bg-panel{--tw-bg-opacity:1;background-color:rgb(255 255 255 / var(--tw-bg-opacity, 1))}.bg-white\/10{background-color:rgb(255 255 255 / 0.1)}.bg-white\/70{background-color:rgb(255 255 255 / 0.7)}.p-2{padding:0.5rem}.p-4{padding:1rem}.p-5{padding:1.25rem}.p-3{padding:0.75rem}.px-2{padding-left:0.5rem;padding-right:0.5rem}.px-3{padding-left:0.75rem;padding-right:0.75rem}.px-4{padding-left:1rem;padding-right:1rem}.px-5{padding-left:1.25rem;padding-right:1.25rem}.py-1{padding-top:0.25rem;padding-bottom:0.25rem}.py-1\.5{padding-top:0.375rem;padding-bottom:0.375rem}.py-2{padding-top:0.5rem;padding-bottom:0.5rem}.py-3{padding-top:0.75rem;padding-bottom:0.75rem}.py-4{padding-top:1rem;padding-bottom:1rem}.py-5{padding-top:1.25rem;padding-bottom:1.25rem}.py-0\.5{padding-top:0.125rem;padding-bottom:0.125rem}.pl-9{padding-left:2.25rem}.pr-4{padding-right:1rem}.pt-1{padding-top:0.25rem}.text-\[10px\]{font-size:10px}.text-\[11px\]{font-size:11px}.text-base{font-size:1rem;line-height:1.5rem}.text-lg{font-size:1.125rem;line-height:1.75rem}.text-sm{font-size:0.875rem;line-height:1.25rem}.text-xs{font-size:0.75rem;line-height:1rem}.text-\[13px\]{font-size:13px}.font-semibold{font-weight:600}.leading-5{line-height:1.25rem}.leading-tight{line-height:1.25}.text-accent{--tw-text-opacity:1;color:rgb(30 112 193 / var(--tw-text-opacity, 1))}.text-ink{--tw-text-opacity:1;color:rgb(15 38 64 / var(--tw-text-opacity, 1))}.text-red-500{--tw-text-opacity:1;color:rgb(239 68 68 / var(--tw-text-opacity, 1))}.text-slate-400{--tw-text-opacity:1;color:rgb(148 163 184 / var(--tw-text-opacity, 1))}.text-slate-500{--tw-text-opacity:1;color:rgb(100 116 139 / var(--tw-text-opacity, 1))}.text-slate-600{--tw-text-opacity:1;color:rgb(71 85 105 / var(--tw-text-opacity, 1))}.text-slate-700{--tw-text-opacity:1;color:rgb(51 65 85 / var(--tw-text-opacity, 1))}.text-white{--tw-text-opacity:1;color:rgb(255 255 255 / var(--tw-text-opacity, 1))}.opacity-0{opacity:0}.shadow-card{--tw-shadow:0 10px 28px rgba(15,38,64,.08);--tw-shadow-colored:0 10px 28px var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.transition{transition-property:color, background-color, border-color, fill, stroke, opacity, box-shadow, transform, filter, -webkit-text-decoration-color, -webkit-backdrop-filter;transition-property:color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter;transition-property:color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter, -webkit-text-decoration-color, -webkit-backdrop-filter;transition-timing-function:cubic-bezier(0.4, 0, 0.2, 1);transition-duration:150ms}.hover\:bg-accent\/90:hover{background-color:rgb(30 112 193 / 0.9)}.hover\:bg-slate-200:hover{--tw-bg-opacity:1;background-color:rgb(226 232 240 / var(--tw-bg-opacity, 1))}.hover\:bg-slate-50:hover{--tw-bg-opacity:1;background-color:rgb(248 250 252 / var(--tw-bg-opacity, 1))}.hover\:bg-white:hover{--tw-bg-opacity:1;background-color:rgb(255 255 255 / var(--tw-bg-opacity, 1))}.hover\:bg-white\/20:hover{background-color:rgb(255 255 255 / 0.2)}.hover\:text-ink:hover{--tw-text-opacity:1;color:rgb(15 38 64 / var(--tw-text-opacity, 1))}.hover\:underline:hover{-webkit-text-decoration-line:underline;text-decoration-line:underline}.focus\:outline-none:focus{outline:2px solid transparent;outline-offset:2px}.focus\:ring-2:focus{--tw-ring-offset-shadow:var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color);--tw-ring-shadow:var(--tw-ring-inset) 0 0 0 calc(2px + var(--tw-ring-offset-width)) var(--tw-ring-color);box-shadow:var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow, 0 0 #0000)}.focus\:ring-accent\/50:focus{--tw-ring-color:rgb(30 112 193 / 0.5)}</style></head>
+<style>*, ::before, ::after{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position: ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgb(59 130 246 / 0.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: ;--tw-contain-size: ;--tw-contain-layout: ;--tw-contain-paint: ;--tw-contain-style: }::backdrop{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position: ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgb(59 130 246 / 0.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: ;--tw-contain-size: ;--tw-contain-layout: ;--tw-contain-paint: ;--tw-contain-style: }/* ! tailwindcss v3.4.17 | MIT License | https://tailwindcss.com */*,::after,::before{box-sizing:border-box;border-width:0;border-style:solid;border-color:#e5e7eb}::after,::before{--tw-content:''}:host,html{line-height:1.5;-webkit-text-size-adjust:100%;-moz-tab-size:4;tab-size:4;font-family:ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";font-feature-settings:normal;font-variation-settings:normal;-webkit-tap-highlight-color:transparent}body{margin:0;line-height:inherit}hr{height:0;color:inherit;border-top-width:1px}abbr:where([title]){-webkit-text-decoration:underline dotted;text-decoration:underline dotted}h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight:inherit}a{color:inherit;text-decoration:inherit}b,strong{font-weight:bolder}code,kbd,pre,samp{font-family:ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;font-feature-settings:normal;font-variation-settings:normal;font-size:1em}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sub{bottom:-.25em}sup{top:-.5em}table{text-indent:0;border-color:inherit;border-collapse:collapse}button,input,optgroup,select,textarea{font-family:inherit;font-feature-settings:inherit;font-variation-settings:inherit;font-size:100%;font-weight:inherit;line-height:inherit;letter-spacing:inherit;color:inherit;margin:0;padding:0}button,select{text-transform:none}button,input:where([type=button]),input:where([type=reset]),input:where([type=submit]){-webkit-appearance:button;background-color:transparent;background-image:none}:-moz-focusring{outline:auto}:-moz-ui-invalid{box-shadow:none}progress{vertical-align:baseline}::-webkit-inner-spin-button,::-webkit-outer-spin-button{height:auto}[type=search]{-webkit-appearance:textfield;outline-offset:-2px}::-webkit-search-decoration{-webkit-appearance:none}::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}summary{display:list-item}blockquote,dd,dl,figure,h1,h2,h3,h4,h5,h6,hr,p,pre{margin:0}fieldset{margin:0;padding:0}legend{padding:0}menu,ol,ul{list-style:none;margin:0;padding:0}dialog{padding:0}textarea{resize:vertical}input::placeholder,textarea::placeholder{opacity:1;color:#9ca3af}[role=button],button{cursor:pointer}:disabled{cursor:default}audio,canvas,embed,iframe,img,object,svg,video{display:block;vertical-align:middle}img,video{max-width:100%;height:auto}[hidden]:where(:not([hidden=until-found])){display:none}.pointer-events-none{pointer-events:none}.fixed{position:fixed}.absolute{position:absolute}.relative{position:relative}.inset-0{inset:0px}.bottom-4{bottom:1rem}.left-1\/2{left:50%}.left-3\.5{left:0.875rem}.right-4{right:1rem}.top-16{top:4rem}.top-2\.5{top:0.625rem}.z-50{z-index:50}.z-\[999\]{z-index:999}.mb-1{margin-bottom:0.25rem}.mb-3{margin-bottom:0.75rem}.mt-1{margin-top:0.25rem}.mt-5{margin-top:1.25rem}.block{display:block}.flex{display:flex}.inline-flex{display:inline-flex}.grid{display:grid}.hidden{display:none}.h-10{height:2.5rem}.h-\[80vh\]{height:80vh}.h-full{height:100%}.max-h-\[90vh\]{max-height:90vh}.min-h-0{min-height:0px}.min-h-\[160px\]{min-height:160px}.min-h-screen{min-height:100vh}.w-10{width:2.5rem}.w-\[250px\]{width:250px}.w-\[340px\]{width:340px}.w-\[min\(360px\2c 100\%\)\]{width:min(360px,100%)}.w-\[min\(680px\2c 100\%\)\]{width:min(680px,100%)}.w-\[min\(980px\2c 100\%\)\]{width:min(980px,100%)}.w-full{width:100%}.min-w-0{min-width:0px}.max-w-\[540px\]{max-width:540px}.flex-1{flex:1 1 0%}.shrink-0{flex-shrink:0}.-translate-x-1\/2{--tw-translate-x:-50%;transform:translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}.resize-none{resize:none}.grid-cols-2{grid-template-columns:repeat(2, minmax(0, 1fr))}.flex-col{flex-direction:column}.items-start{align-items:flex-start}.items-center{align-items:center}.justify-end{justify-content:flex-end}.justify-center{justify-content:center}.justify-between{justify-content:space-between}.gap-2{gap:0.5rem}.gap-3{gap:0.75rem}.gap-1{gap:0.25rem}.space-y-2 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(0.5rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(0.5rem * var(--tw-space-y-reverse))}.space-y-3 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(0.75rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(0.75rem * var(--tw-space-y-reverse))}.space-y-4 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(1rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(1rem * var(--tw-space-y-reverse))}.overflow-auto{overflow:auto}.overflow-hidden{overflow:hidden}.rounded-2xl{border-radius:1rem}.rounded-full{border-radius:9999px}.rounded-lg{border-radius:0.5rem}.rounded-md{border-radius:0.375rem}.rounded-b-2xl{border-bottom-right-radius:1rem;border-bottom-left-radius:1rem}.border{border-width:1px}.border-b{border-bottom-width:1px}.border-r{border-right-width:1px}.border-t{border-top-width:1px}.border-slate-200{--tw-border-opacity:1;border-color:rgb(226 232 240 / var(--tw-border-opacity, 1))}.border-slate-200\/70{border-color:rgb(226 232 240 / 0.7)}.bg-accent{--tw-bg-opacity:1;background-color:rgb(30 112 193 / var(--tw-bg-opacity, 1))}.bg-black\/30{background-color:rgb(0 0 0 / 0.3)}.bg-ink{--tw-bg-opacity:1;background-color:rgb(15 38 64 / var(--tw-bg-opacity, 1))}.bg-shell{--tw-bg-opacity:1;background-color:rgb(234 241 251 / var(--tw-bg-opacity, 1))}.bg-slate-100{--tw-bg-opacity:1;background-color:rgb(241 245 249 / var(--tw-bg-opacity, 1))}.bg-slate-900\/70{background-color:rgb(15 23 42 / 0.7)}.bg-white{--tw-bg-opacity:1;background-color:rgb(255 255 255 / var(--tw-bg-opacity, 1))}.bg-panel{--tw-bg-opacity:1;background-color:rgb(255 255 255 / var(--tw-bg-opacity, 1))}.bg-white\/10{background-color:rgb(255 255 255 / 0.1)}.bg-white\/70{background-color:rgb(255 255 255 / 0.7)}.p-2{padding:0.5rem}.p-3{padding:0.75rem}.p-4{padding:1rem}.p-5{padding:1.25rem}.p-3\.5{padding:0.875rem}.px-2{padding-left:0.5rem;padding-right:0.5rem}.px-3\.5{padding-left:0.875rem;padding-right:0.875rem}.px-4{padding-left:1rem;padding-right:1rem}.px-5{padding-left:1.25rem;padding-right:1.25rem}.py-1{padding-top:0.25rem;padding-bottom:0.25rem}.py-1\.5{padding-top:0.375rem;padding-bottom:0.375rem}.py-2{padding-top:0.5rem;padding-bottom:0.5rem}.py-2\.5{padding-top:0.625rem;padding-bottom:0.625rem}.py-3{padding-top:0.75rem;padding-bottom:0.75rem}.py-4{padding-top:1rem;padding-bottom:1rem}.py-5{padding-top:1.25rem;padding-bottom:1.25rem}.px-2\.5{padding-left:0.625rem;padding-right:0.625rem}.py-0\.5{padding-top:0.125rem;padding-bottom:0.125rem}.pl-10{padding-left:2.5rem}.pr-4{padding-right:1rem}.pt-1{padding-top:0.25rem}.text-\[0\.95rem\]{font-size:0.95rem}.text-\[1\.05rem\]{font-size:1.05rem}.text-\[10px\]{font-size:10px}.text-\[11px\]{font-size:11px}.text-\[1rem\]{font-size:1rem}.text-base{font-size:1rem;line-height:1.5rem}.text-lg{font-size:1.125rem;line-height:1.75rem}.text-sm{font-size:0.875rem;line-height:1.25rem}.text-xs{font-size:0.75rem;line-height:1rem}.text-\[0\.9rem\]{font-size:0.9rem}.font-semibold{font-weight:600}.leading-5{line-height:1.25rem}.leading-tight{line-height:1.25}.leading-6{line-height:1.5rem}.text-accent{--tw-text-opacity:1;color:rgb(30 112 193 / var(--tw-text-opacity, 1))}.text-ink{--tw-text-opacity:1;color:rgb(15 38 64 / var(--tw-text-opacity, 1))}.text-red-500{--tw-text-opacity:1;color:rgb(239 68 68 / var(--tw-text-opacity, 1))}.text-slate-400{--tw-text-opacity:1;color:rgb(148 163 184 / var(--tw-text-opacity, 1))}.text-slate-500{--tw-text-opacity:1;color:rgb(100 116 139 / var(--tw-text-opacity, 1))}.text-slate-600{--tw-text-opacity:1;color:rgb(71 85 105 / var(--tw-text-opacity, 1))}.text-slate-700{--tw-text-opacity:1;color:rgb(51 65 85 / var(--tw-text-opacity, 1))}.text-white{--tw-text-opacity:1;color:rgb(255 255 255 / var(--tw-text-opacity, 1))}.opacity-0{opacity:0}.shadow-card{--tw-shadow:0 10px 28px rgba(15,38,64,.08);--tw-shadow-colored:0 10px 28px var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.transition{transition-property:color, background-color, border-color, fill, stroke, opacity, box-shadow, transform, filter, -webkit-text-decoration-color, -webkit-backdrop-filter;transition-property:color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter;transition-property:color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter, -webkit-text-decoration-color, -webkit-backdrop-filter;transition-timing-function:cubic-bezier(0.4, 0, 0.2, 1);transition-duration:150ms}.hover\:bg-accent\/90:hover{background-color:rgb(30 112 193 / 0.9)}.hover\:bg-slate-200:hover{--tw-bg-opacity:1;background-color:rgb(226 232 240 / var(--tw-bg-opacity, 1))}.hover\:bg-slate-50:hover{--tw-bg-opacity:1;background-color:rgb(248 250 252 / var(--tw-bg-opacity, 1))}.hover\:bg-white:hover{--tw-bg-opacity:1;background-color:rgb(255 255 255 / var(--tw-bg-opacity, 1))}.hover\:bg-white\/20:hover{background-color:rgb(255 255 255 / 0.2)}.hover\:text-ink:hover{--tw-text-opacity:1;color:rgb(15 38 64 / var(--tw-text-opacity, 1))}.hover\:underline:hover{-webkit-text-decoration-line:underline;text-decoration-line:underline}.focus\:outline-none:focus{outline:2px solid transparent;outline-offset:2px}.focus\:ring-2:focus{--tw-ring-offset-shadow:var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color);--tw-ring-shadow:var(--tw-ring-inset) 0 0 0 calc(2px + var(--tw-ring-offset-width)) var(--tw-ring-color);box-shadow:var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow, 0 0 #0000)}.focus\:ring-accent\/50:focus{--tw-ring-color:rgb(30 112 193 / 0.5)}</style></head>
 
 <body class="h-full min-h-screen flex flex-col">
 
@@ -84,7 +112,7 @@
 
       <div class="px-5 py-4 border-b border-slate-200">
 
-        <h1 class="text-sm font-semibold text-ink">EM Templates — Login</h1>
+        <h1 class="text-base font-semibold text-ink">EM Templates — Login</h1>
 
         <p class="text-xs text-slate-500 mt-1">Enter the site credentials.</p>
 
@@ -122,13 +150,13 @@
 
   <header class="w-full bg-shell border-b border-slate-200/70 px-5 py-3 flex items-center justify-between gap-3">
 
-    <div class="flex items-center gap-2">
+    <div class="flex items-center gap-3">
 
-      <div class="w-9 h-9 rounded-full bg-ink text-white flex items-center justify-center text-sm font-semibold">EM</div>
+      <div class="w-10 h-10 rounded-full bg-ink text-white flex items-center justify-center text-sm font-semibold">EM</div>
 
       <div>
 
-        <div class="text-sm font-semibold text-ink leading-tight">EM Templates</div>
+        <div class="text-[1rem] font-semibold text-ink leading-tight">EM Templates</div>
 
         <div class="text-[11px] text-slate-500 leading-tight">Local-only macros • Searchable • Dot-phrase copy • Drag &amp; drop to organize</div>
 
@@ -136,13 +164,13 @@
 
     </div>
 
-    <div class="flex-1 max-w-[520px]">
+    <div class="flex-1 max-w-[540px]">
 
       <div class="relative">
 
-        <input id="search" class="w-full bg-white border border-slate-200 rounded-full pl-9 pr-4 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-accent/50" placeholder="Search...   Tip: type .alias for live preview, Enter to copy">
+        <input id="search" class="w-full bg-white border border-slate-200 rounded-full pl-10 pr-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-accent/50" placeholder="Search...   Tip: type .alias for live preview, Enter to copy">
 
-        <span class="absolute left-3 top-2.5 text-slate-400">🔍</span>
+        <span class="absolute left-3.5 top-2.5 text-slate-400">🔍</span>
 
       </div>
 
@@ -150,7 +178,7 @@
 
     <div class="flex gap-2">
 
-      <button id="new-macro-btn" class="px-3 py-1.5 rounded-full bg-white border border-slate-200 text-sm text-ink hover:bg-slate-50" type="button">+ Macro</button>
+      <button id="new-macro-btn" class="px-3.5 py-1.5 rounded-full bg-white border border-slate-200 text-sm text-ink hover:bg-slate-50" type="button">+ Macro</button>
 
       <button id="settings-btn" class="w-10 h-10 rounded-full bg-accent hover:bg-accent/90 text-white flex items-center justify-center text-lg" type="button">⚙</button>
 
@@ -160,7 +188,7 @@
 
   <!-- SETTINGS PANEL -->
 
-  <div id="settings-pop" class="settings-pop fixed top-16 right-4 w-[320px] bg-white rounded-2xl shadow-card border border-slate-200 z-50 open">
+  <div id="settings-pop" class="settings-pop fixed top-16 right-4 w-[340px] bg-white rounded-2xl shadow-card border border-slate-200 z-50 open">
 
     <div class="flex items-center justify-between px-4 py-3 border-b border-slate-200/70">
 
@@ -242,17 +270,17 @@
 
   </div>
 
-  <!-- EDIT MODAL -->
+  <!-- EDIT MODAL (big) -->
 
   <div id="edit-modal" class="fixed inset-0 bg-black/30 z-50 items-center justify-center p-4">
 
-    <div class="bg-white rounded-2xl w-[min(720px,100%)] max-h-[90vh] flex flex-col">
+    <div class="bg-white rounded-2xl w-[min(980px,100%)] h-[80vh] flex flex-col">
 
       <div class="flex items-center justify-between px-4 py-3 border-b border-slate-200">
 
-        <h2 id="edit-title" class="text-sm font-semibold text-ink">Edit macro</h2>
+        <h2 id="edit-title" class="text-base font-semibold text-ink">Edit macro</h2>
 
-        <button id="edit-close" class="text-xs text-slate-500 hover:text-ink">✕</button>
+        <button id="edit-close" class="text-sm text-slate-500 hover:text-ink">✕</button>
 
       </div>
 
@@ -260,7 +288,7 @@
 
         <label class="text-xs text-slate-500" for="edit-body">Body</label>
 
-        <textarea id="edit-body" class="flex-1 border border-slate-200 rounded-lg p-2 text-sm leading-5 resize-none"></textarea>
+        <textarea id="edit-body" class="flex-1 w-full border border-slate-200 rounded-lg p-3 text-sm leading-5 resize-none overflow-auto" style="min-height:0;"></textarea>
 
       </div>
 
@@ -284,9 +312,9 @@
 
       <div class="flex items-center justify-between px-4 py-3 border-b border-slate-200">
 
-        <h2 class="text-sm font-semibold text-ink">New macro</h2>
+        <h2 class="text-base font-semibold text-ink">New macro</h2>
 
-        <button id="new-macro-close" class="text-xs text-slate-500 hover:text-ink">✕</button>
+        <button id="new-macro-close" class="text-sm text-slate-500 hover:text-ink">✕</button>
 
       </div>
 
@@ -298,7 +326,7 @@
 
             <label class="text-xs text-slate-500 block mb-1" for="new-title">Title</label>
 
-            <input id="new-title" class="w-full border border-slate-200 rounded-lg px-2 py-1 text-sm">
+            <input id="new-title" class="w-full border border-slate-200 rounded-lg px-2 py-1.5 text-sm">
 
           </div>
 
@@ -306,7 +334,7 @@
 
             <label class="text-xs text-slate-500 block mb-1" for="new-dot">Dot phrase</label>
 
-            <input id="new-dot" class="w-full border border-slate-200 rounded-lg px-2 py-1 text-sm" placeholder=".mydot">
+            <input id="new-dot" class="w-full border border-slate-200 rounded-lg px-2 py-1.5 text-sm" placeholder=".mydot">
 
           </div>
 
@@ -316,7 +344,7 @@
 
           <label class="text-xs text-slate-500 block mb-1" for="new-cat">Category</label>
 
-          <select id="new-cat" class="w-full border border-slate-200 rounded-lg px-2 py-1 text-sm"></select>
+          <select id="new-cat" class="w-full border border-slate-200 rounded-lg px-2 py-1.5 text-sm"></select>
 
         </div>
 
@@ -348,17 +376,17 @@
 
     <!-- SIDEBAR -->
 
-    <aside class="w-[240px] shrink-0 bg-shell px-4 py-5 border-r border-slate-200/70">
+    <aside class="w-[250px] shrink-0 bg-shell px-4 py-5 border-r border-slate-200/70">
 
       <div class="flex items-center justify-between mb-3">
 
-        <h2 class="text-base font-semibold text-ink">Categories</h2>
+        <h2 class="text-[0.95rem] font-semibold text-ink">Categories</h2>
 
         <button id="add-category" class="text-xs text-accent hover:underline">+ Add</button>
 
       </div>
 
-      <div id="cat-list" class="space-y-2"><button type="button" data-cat="All" class="cat-btn w-full flex items-center justify-between bg-white/70 hover:bg-white rounded-2xl px-4 py-3 text-sm text-ink bg-white"><span>All</span><span class="text-xs text-slate-500">12</span></button><button type="button" data-cat="Pediatrics" class="cat-btn w-full flex items-center justify-between bg-white/70 hover:bg-white rounded-2xl px-4 py-3 text-sm text-ink"><span>Pediatrics</span><span class="text-xs text-slate-500">4</span></button><button type="button" data-cat="Communication" class="cat-btn w-full flex items-center justify-between bg-white/70 hover:bg-white rounded-2xl px-4 py-3 text-sm text-ink"><span>Communication</span><span class="text-xs text-slate-500">2</span></button><button type="button" data-cat="Neonatal / Hyperbili" class="cat-btn w-full flex items-center justify-between bg-white/70 hover:bg-white rounded-2xl px-4 py-3 text-sm text-ink"><span>Neonatal / Hyperbili</span><span class="text-xs text-slate-500">3</span></button><button type="button" data-cat="Peds — Trauma / PECARN" class="cat-btn w-full flex items-center justify-between bg-white/70 hover:bg-white rounded-2xl px-4 py-3 text-sm text-ink"><span>Peds — Trauma / PECARN</span><span class="text-xs text-slate-500">3</span></button></div>
+      <div id="cat-list" class="space-y-2"><button type="button" data-cat="All" class="cat-btn w-full flex items-center justify-between bg-white/70 hover:bg-white rounded-2xl px-4 py-3 text-[0.9rem] text-ink bg-white"><span>All</span><span class="text-xs text-slate-500">12</span></button><button type="button" data-cat="Pediatrics" class="cat-btn w-full flex items-center justify-between bg-white/70 hover:bg-white rounded-2xl px-4 py-3 text-[0.9rem] text-ink"><span>Pediatrics</span><span class="text-xs text-slate-500">4</span></button><button type="button" data-cat="Communication" class="cat-btn w-full flex items-center justify-between bg-white/70 hover:bg-white rounded-2xl px-4 py-3 text-[0.9rem] text-ink"><span>Communication</span><span class="text-xs text-slate-500">2</span></button><button type="button" data-cat="Neonatal / Hyperbili" class="cat-btn w-full flex items-center justify-between bg-white/70 hover:bg-white rounded-2xl px-4 py-3 text-[0.9rem] text-ink"><span>Neonatal / Hyperbili</span><span class="text-xs text-slate-500">3</span></button><button type="button" data-cat="Peds — Trauma / PECARN" class="cat-btn w-full flex items-center justify-between bg-white/70 hover:bg-white rounded-2xl px-4 py-3 text-[0.9rem] text-ink"><span>Peds — Trauma / PECARN</span><span class="text-xs text-slate-500">3</span></button></div>
 
       <p class="text-[11px] text-slate-400 mt-5">Tip: drag a card into a category to move it.</p>
 
@@ -370,7 +398,7 @@
 
       <div id="section-title" class="flex items-center justify-between mb-3">
 
-        <h2 class="text-base font-semibold text-ink">All macros</h2>
+        <h2 class="text-[1.05rem] font-semibold text-ink">All macros</h2>
 
         <span id="section-count" class="text-xs text-slate-500">12 macros</span>
 
@@ -378,315 +406,315 @@
 
       <div id="macro-list" class="space-y-4"><div class="bg-panel rounded-2xl shadow-card" draggable="true" data-id="peds-viral">
 
-          <div class="macro-card rounded-2xl p-3 flex items-start justify-between gap-3">
+          <div class="macro-card rounded-2xl p-3.5 flex items-start justify-between gap-3">
 
             <div>
 
-              <h3 class="text-sm font-semibold text-white mb-1">MDM — Pediatric Viral / Febrile Illness</h3>
+              <h3 class="text-[1rem] font-semibold text-white mb-1">MDM — Pediatric Viral / Febrile Illness</h3>
 
-              <button data-action="copy-dot" data-id="peds-viral" class="inline-flex items-center gap-1 bg-white/10 hover:bg-white/20 text-[11px] text-white rounded-full px-2 py-0.5">Dot: .pedsviral</button>
+              <button data-action="copy-dot" data-id="peds-viral" class="inline-flex items-center gap-1 bg-white/10 hover:bg-white/20 text-[11px] text-white rounded-full px-2.5 py-0.5">Dot: .pedsviral</button>
 
             </div>
 
             <div class="flex gap-2 shrink-0">
 
-              <button data-action="copy" data-id="peds-viral" class="text-xs bg-white/10 hover:bg-white/20 text-white rounded-md px-2 py-1">Copy</button>
+              <button data-action="copy" data-id="peds-viral" class="text-xs bg-white/10 hover:bg-white/20 text-white rounded-md px-2.5 py-1">Copy</button>
 
-              <button data-action="edit" data-id="peds-viral" class="text-xs bg-white/10 hover:bg-white/20 text-white rounded-md px-2 py-1">Edit</button>
+              <button data-action="edit" data-id="peds-viral" class="text-xs bg-white/10 hover:bg-white/20 text-white rounded-md px-2.5 py-1">Edit</button>
 
-              <button data-action="del" data-id="peds-viral" class="text-xs bg-white/10 hover:bg-white/20 text-white rounded-md px-2 py-1">Del</button>
+              <button data-action="del" data-id="peds-viral" class="text-xs bg-white/10 hover:bg-white/20 text-white rounded-md px-2.5 py-1">Del</button>
 
             </div>
 
           </div>
 
-          <div class="macro-body rounded-b-2xl p-3 text-[13px] leading-5">[age]-year-old [sex] presented to the ED with [duration] of fever and associated [symptoms: cough, nasal congestion, rhinorrhea, decreased appetite, irritability]. Parent present at bedside reports patient has been tolerating PO without difficulties, with [no / mild] decrease in appetite and normal urine output. Denies vomiting, diarrhea, rash, or respiratory distress. Immunizations are up to date.<br><br>On evaluation, patient appeared well hydrated, interactive, and appropriate for age, with normal capillary refill and no increased work of breathing. Oropharynx clear, tympanic membranes without bulging or erythema, lungs clear to auscultation, and abdomen soft, non-tender, and non-distended.<br><br>Differential includes viral upper respiratory infection, early otitis media, influenza, RSV, COVID-19, and early pneumonia, though there were no focal findings to strongly suggest a bacterial source. Findings today are most consistent with a viral process. [COVID, influenza, and RSV tests were negative / pending / positive for ___ / not obtained.]<br><br>Patient remained comfortable and interactive throughout the ED visit with stable vital signs and reassuring physical findings. Findings reviewed with the parent at bedside, and supportive care discussed, including weight-based acetaminophen or ibuprofen for fever and encouraging fluids as tolerated. Parent verbalized understanding and was comfortable with the plan for discharge and outpatient follow-up.<br><br>Strict return precautions discussed, including persistent fever, respiratory distress, poor oral intake, vomiting, decreased urine output, new rash, or any new or concerning symptoms. Follow-up with pediatrician advised within 48–72 hours or sooner if symptoms worsen.</div>
+          <div class="macro-body rounded-b-2xl p-3.5 text-[0.9rem] leading-6">[age]-year-old [sex] presented to the ED with [duration] of fever and associated [symptoms: cough, nasal congestion, rhinorrhea, decreased appetite, irritability]. Parent present at bedside reports patient has been tolerating PO without difficulties, with [no / mild] decrease in appetite and normal urine output. Denies vomiting, diarrhea, rash, or respiratory distress. Immunizations are up to date.<br><br>On evaluation, patient appeared well hydrated, interactive, and appropriate for age, with normal capillary refill and no increased work of breathing. Oropharynx clear, tympanic membranes without bulging or erythema, lungs clear to auscultation, and abdomen soft, non-tender, and non-distended.<br><br>Differential includes viral upper respiratory infection, early otitis media, influenza, RSV, COVID-19, and early pneumonia, though there were no focal findings to strongly suggest a bacterial source. Findings today are most consistent with a viral process. [COVID, influenza, and RSV tests were negative / pending / positive for ___ / not obtained.]<br><br>Patient remained comfortable and interactive throughout the ED visit with stable vital signs and reassuring physical findings. Findings reviewed with the parent at bedside, and supportive care discussed, including weight-based acetaminophen or ibuprofen for fever and encouraging fluids as tolerated. Parent verbalized understanding and was comfortable with the plan for discharge and outpatient follow-up.<br><br>Strict return precautions discussed, including persistent fever, respiratory distress, poor oral intake, vomiting, decreased urine output, new rash, or any new or concerning symptoms. Follow-up with pediatrician advised within 48–72 hours or sooner if symptoms worsen.</div>
 
         </div><div class="bg-panel rounded-2xl shadow-card" draggable="true" data-id="peds-strep">
 
-          <div class="macro-card rounded-2xl p-3 flex items-start justify-between gap-3">
+          <div class="macro-card rounded-2xl p-3.5 flex items-start justify-between gap-3">
 
             <div>
 
-              <h3 class="text-sm font-semibold text-white mb-1">Pediatric Streptococcal Pharyngitis (cleaned up + consistent with your tone)</h3>
+              <h3 class="text-[1rem] font-semibold text-white mb-1">Pediatric Streptococcal Pharyngitis (cleaned up + consistent with your tone)</h3>
 
-              <button data-action="copy-dot" data-id="peds-strep" class="inline-flex items-center gap-1 bg-white/10 hover:bg-white/20 text-[11px] text-white rounded-full px-2 py-0.5">Dot: .pedsstrep</button>
+              <button data-action="copy-dot" data-id="peds-strep" class="inline-flex items-center gap-1 bg-white/10 hover:bg-white/20 text-[11px] text-white rounded-full px-2.5 py-0.5">Dot: .pedsstrep</button>
 
             </div>
 
             <div class="flex gap-2 shrink-0">
 
-              <button data-action="copy" data-id="peds-strep" class="text-xs bg-white/10 hover:bg-white/20 text-white rounded-md px-2 py-1">Copy</button>
+              <button data-action="copy" data-id="peds-strep" class="text-xs bg-white/10 hover:bg-white/20 text-white rounded-md px-2.5 py-1">Copy</button>
 
-              <button data-action="edit" data-id="peds-strep" class="text-xs bg-white/10 hover:bg-white/20 text-white rounded-md px-2 py-1">Edit</button>
+              <button data-action="edit" data-id="peds-strep" class="text-xs bg-white/10 hover:bg-white/20 text-white rounded-md px-2.5 py-1">Edit</button>
 
-              <button data-action="del" data-id="peds-strep" class="text-xs bg-white/10 hover:bg-white/20 text-white rounded-md px-2 py-1">Del</button>
+              <button data-action="del" data-id="peds-strep" class="text-xs bg-white/10 hover:bg-white/20 text-white rounded-md px-2.5 py-1">Del</button>
 
             </div>
 
           </div>
 
-          <div class="macro-body rounded-b-2xl p-3 text-[13px] leading-5">[age]-year-old [sex] presented to the ED with [duration] of sore throat associated with [symptoms: fever, decreased appetite, odynophagia, mild cough / no cough, nasal congestion]. Parent present at bedside reports patient has been tolerating PO intake [well / poorly] and maintaining normal urine output. Denies vomiting, drooling, neck stiffness, or respiratory distress. Immunizations are up to date.<br><br>On exam, patient appeared well hydrated, interactive, and nontoxic. Oropharyngeal exam notable for [tonsillar erythema / exudates / palatal petechiae / none], uvula midline, and no evidence of peritonsillar swelling or trismus. Cervical nodes [tender / non-tender, enlarged / not enlarged]. Lungs clear to auscultation and no meningeal signs or rash observed.<br><br>Differential includes streptococcal pharyngitis, viral pharyngitis, early tonsillitis, and mononucleosis, with low concern for peritonsillar abscess, epiglottitis, or retropharyngeal infection given the reassuring airway exam and overall well appearance. Findings today are most consistent with [streptococcal / viral] pharyngitis. [Rapid strep test positive / negative / pending; throat culture sent / not obtained.] [COVID, influenza, and RSV tests negative / positive for ___ / not obtained.]<br><br>For confirmed or suspected streptococcal infection, prescribed [amoxicillin / cephalexin / azithromycin] — weight-based dosing — with instructions to complete the full course. Supportive care discussed, including acetaminophen or ibuprofen for fever or throat pain, maintaining hydration, and soft foods as tolerated.<br><br>Patient remained comfortable and interactive throughout the ED visit with stable vital signs and reassuring physical findings. Findings reviewed with the parent at bedside, who verbalized understanding and was comfortable with the plan for discharge and outpatient follow-up.<br><br>Strict return precautions discussed, including persistent fever, worsening throat pain, drooling, difficulty swallowing or breathing, neck swelling, or any new or concerning symptoms. Follow-up with pediatrician advised within 48–72 hours or sooner if symptoms worsen.</div>
+          <div class="macro-body rounded-b-2xl p-3.5 text-[0.9rem] leading-6">[age]-year-old [sex] presented to the ED with [duration] of sore throat associated with [symptoms: fever, decreased appetite, odynophagia, mild cough / no cough, nasal congestion]. Parent present at bedside reports patient has been tolerating PO intake [well / poorly] and maintaining normal urine output. Denies vomiting, drooling, neck stiffness, or respiratory distress. Immunizations are up to date.<br><br>On exam, patient appeared well hydrated, interactive, and nontoxic. Oropharyngeal exam notable for [tonsillar erythema / exudates / palatal petechiae / none], uvula midline, and no evidence of peritonsillar swelling or trismus. Cervical nodes [tender / non-tender, enlarged / not enlarged]. Lungs clear to auscultation and no meningeal signs or rash observed.<br><br>Differential includes streptococcal pharyngitis, viral pharyngitis, early tonsillitis, and mononucleosis, with low concern for peritonsillar abscess, epiglottitis, or retropharyngeal infection given the reassuring airway exam and overall well appearance. Findings today are most consistent with [streptococcal / viral] pharyngitis. [Rapid strep test positive / negative / pending; throat culture sent / not obtained.] [COVID, influenza, and RSV tests negative / positive for ___ / not obtained.]<br><br>For confirmed or suspected streptococcal infection, prescribed [amoxicillin / cephalexin / azithromycin] — weight-based dosing — with instructions to complete the full course. Supportive care discussed, including acetaminophen or ibuprofen for fever or throat pain, maintaining hydration, and soft foods as tolerated.<br><br>Patient remained comfortable and interactive throughout the ED visit with stable vital signs and reassuring physical findings. Findings reviewed with the parent at bedside, who verbalized understanding and was comfortable with the plan for discharge and outpatient follow-up.<br><br>Strict return precautions discussed, including persistent fever, worsening throat pain, drooling, difficulty swallowing or breathing, neck swelling, or any new or concerning symptoms. Follow-up with pediatrician advised within 48–72 hours or sooner if symptoms worsen.</div>
 
         </div><div class="bg-panel rounded-2xl shadow-card" draggable="true" data-id="peds-otitis">
 
-          <div class="macro-card rounded-2xl p-3 flex items-start justify-between gap-3">
+          <div class="macro-card rounded-2xl p-3.5 flex items-start justify-between gap-3">
 
             <div>
 
-              <h3 class="text-sm font-semibold text-white mb-1">MDM — Pediatric Otitis Media</h3>
+              <h3 class="text-[1rem] font-semibold text-white mb-1">MDM — Pediatric Otitis Media</h3>
 
-              <button data-action="copy-dot" data-id="peds-otitis" class="inline-flex items-center gap-1 bg-white/10 hover:bg-white/20 text-[11px] text-white rounded-full px-2 py-0.5">Dot: .pedsotitis</button>
+              <button data-action="copy-dot" data-id="peds-otitis" class="inline-flex items-center gap-1 bg-white/10 hover:bg-white/20 text-[11px] text-white rounded-full px-2.5 py-0.5">Dot: .pedsotitis</button>
 
             </div>
 
             <div class="flex gap-2 shrink-0">
 
-              <button data-action="copy" data-id="peds-otitis" class="text-xs bg-white/10 hover:bg-white/20 text-white rounded-md px-2 py-1">Copy</button>
+              <button data-action="copy" data-id="peds-otitis" class="text-xs bg-white/10 hover:bg-white/20 text-white rounded-md px-2.5 py-1">Copy</button>
 
-              <button data-action="edit" data-id="peds-otitis" class="text-xs bg-white/10 hover:bg-white/20 text-white rounded-md px-2 py-1">Edit</button>
+              <button data-action="edit" data-id="peds-otitis" class="text-xs bg-white/10 hover:bg-white/20 text-white rounded-md px-2.5 py-1">Edit</button>
 
-              <button data-action="del" data-id="peds-otitis" class="text-xs bg-white/10 hover:bg-white/20 text-white rounded-md px-2 py-1">Del</button>
+              <button data-action="del" data-id="peds-otitis" class="text-xs bg-white/10 hover:bg-white/20 text-white rounded-md px-2.5 py-1">Del</button>
 
             </div>
 
           </div>
 
-          <div class="macro-body rounded-b-2xl p-3 text-[13px] leading-5">[age]-year-old [sex] presented to the ED with [duration] of ear pain associated with [symptoms: fever, nasal congestion, cough, irritability, decreased appetite]. Parent present at bedside reports patient has been tolerating PO intake [well / poorly] with normal urinary output. Denies vomiting, drainage from the ear, rash, or respiratory distress. Immunizations are up to date.<br><br>On exam, patient appeared well hydrated and interactive for age. Right / left tympanic membrane noted to be [erythematous / bulging / dull / effusion present / normal]; no mastoid tenderness, auricular swelling, or drainage. Contralateral ear within normal limits. Lungs clear to auscultation, and oropharynx without erythema or exudate. Neck supple with full range of motion and no lymphadenopathy. Abdomen soft and non-tender.<br><br>Differential includes acute otitis media, otitis externa, eustachian tube dysfunction, and viral upper respiratory infection. Findings today are most consistent with [acute otitis media / serous otitis / viral URI with referred ear pain]. [COVID, influenza, and RSV tests negative / positive for ___ / not obtained.]<br><br>If bacterial:<br><br> Antibiotic therapy initiated with [amoxicillin / cefdinir / azithromycin], weight-based, and first dose given in the ED. Supportive care discussed with parent, including acetaminophen or ibuprofen for pain or fever, and maintaining hydration. If symptoms fail to improve or worsen despite treatment, advised prompt re-evaluation.<br><br>If non-bacterial / watchful waiting:<br><br> Findings reviewed with parent at bedside. Presentation may represent early or serous otitis rather than acute bacterial infection; advised supportive care with acetaminophen or ibuprofen as needed and close follow-up if symptoms persist or worsen.<br><br>Patient remained comfortable and interactive throughout the ED visit with stable vital signs and reassuring physical findings. Findings and plan reviewed with parent at bedside, who verbalized understanding and was comfortable with discharge and outpatient follow-up.<br><br>Strict return precautions discussed, including persistent fever, worsening ear pain, drainage from the ear, vomiting, lethargy, poor oral intake, new rash, neck stiffness, or any new or concerning symptoms. Follow-up with pediatrician advised within 48–72 hours or sooner if symptoms worsen.</div>
+          <div class="macro-body rounded-b-2xl p-3.5 text-[0.9rem] leading-6">[age]-year-old [sex] presented to the ED with [duration] of ear pain associated with [symptoms: fever, nasal congestion, cough, irritability, decreased appetite]. Parent present at bedside reports patient has been tolerating PO intake [well / poorly] with normal urinary output. Denies vomiting, drainage from the ear, rash, or respiratory distress. Immunizations are up to date.<br><br>On exam, patient appeared well hydrated and interactive for age. Right / left tympanic membrane noted to be [erythematous / bulging / dull / effusion present / normal]; no mastoid tenderness, auricular swelling, or drainage. Contralateral ear within normal limits. Lungs clear to auscultation, and oropharynx without erythema or exudate. Neck supple with full range of motion and no lymphadenopathy. Abdomen soft and non-tender.<br><br>Differential includes acute otitis media, otitis externa, eustachian tube dysfunction, and viral upper respiratory infection. Findings today are most consistent with [acute otitis media / serous otitis / viral URI with referred ear pain]. [COVID, influenza, and RSV tests negative / positive for ___ / not obtained.]<br><br>If bacterial:<br><br> Antibiotic therapy initiated with [amoxicillin / cefdinir / azithromycin], weight-based, and first dose given in the ED. Supportive care discussed with parent, including acetaminophen or ibuprofen for pain or fever, and maintaining hydration. If symptoms fail to improve or worsen despite treatment, advised prompt re-evaluation.<br><br>If non-bacterial / watchful waiting:<br><br> Findings reviewed with parent at bedside. Presentation may represent early or serous otitis rather than acute bacterial infection; advised supportive care with acetaminophen or ibuprofen as needed and close follow-up if symptoms persist or worsen.<br><br>Patient remained comfortable and interactive throughout the ED visit with stable vital signs and reassuring physical findings. Findings and plan reviewed with parent at bedside, who verbalized understanding and was comfortable with discharge and outpatient follow-up.<br><br>Strict return precautions discussed, including persistent fever, worsening ear pain, drainage from the ear, vomiting, lethargy, poor oral intake, new rash, neck stiffness, or any new or concerning symptoms. Follow-up with pediatrician advised within 48–72 hours or sooner if symptoms worsen.</div>
 
         </div><div class="bg-panel rounded-2xl shadow-card" draggable="true" data-id="peds-pna">
 
-          <div class="macro-card rounded-2xl p-3 flex items-start justify-between gap-3">
+          <div class="macro-card rounded-2xl p-3.5 flex items-start justify-between gap-3">
 
             <div>
 
-              <h3 class="text-sm font-semibold text-white mb-1">Pediatric Pneumonia — MDM Template</h3>
+              <h3 class="text-[1rem] font-semibold text-white mb-1">Pediatric Pneumonia — MDM Template</h3>
 
-              <button data-action="copy-dot" data-id="peds-pna" class="inline-flex items-center gap-1 bg-white/10 hover:bg-white/20 text-[11px] text-white rounded-full px-2 py-0.5">Dot: .pedspna</button>
+              <button data-action="copy-dot" data-id="peds-pna" class="inline-flex items-center gap-1 bg-white/10 hover:bg-white/20 text-[11px] text-white rounded-full px-2.5 py-0.5">Dot: .pedspna</button>
 
             </div>
 
             <div class="flex gap-2 shrink-0">
 
-              <button data-action="copy" data-id="peds-pna" class="text-xs bg-white/10 hover:bg-white/20 text-white rounded-md px-2 py-1">Copy</button>
+              <button data-action="copy" data-id="peds-pna" class="text-xs bg-white/10 hover:bg-white/20 text-white rounded-md px-2.5 py-1">Copy</button>
 
-              <button data-action="edit" data-id="peds-pna" class="text-xs bg-white/10 hover:bg-white/20 text-white rounded-md px-2 py-1">Edit</button>
+              <button data-action="edit" data-id="peds-pna" class="text-xs bg-white/10 hover:bg-white/20 text-white rounded-md px-2.5 py-1">Edit</button>
 
-              <button data-action="del" data-id="peds-pna" class="text-xs bg-white/10 hover:bg-white/20 text-white rounded-md px-2 py-1">Del</button>
+              <button data-action="del" data-id="peds-pna" class="text-xs bg-white/10 hover:bg-white/20 text-white rounded-md px-2.5 py-1">Del</button>
 
             </div>
 
           </div>
 
-          <div class="macro-body rounded-b-2xl p-3 text-[13px] leading-5">Patient presented with [cough / fever / shortness of breath / malaise] for [duration] prior to arrival. Parent present at bedside reports [persistent cough / decreased appetite / mild fatigue / increased work of breathing] with [no vomiting / no lethargy / no rash]. On exam, patient was alert, interactive, and behaving appropriately for age. Lungs revealed [focal crackles / diminished breath sounds / rhonchi / mild wheezing], with [no retractions / no nasal flaring / normal oxygen saturation]. Findings otherwise reassuring, with no signs of respiratory distress or dehydration.<br><br>Differential includes viral pneumonia, bacterial pneumonia, bronchiolitis, asthma or reactive airway exacerbation, and upper respiratory infection. Findings today are most consistent with [bacterial / viral] pneumonia based on clinical picture and [chest x-ray results / auscultatory findings].<br><br>Findings and imaging were consistent with [bacterial / viral] pneumonia. Patient was [prescribed / given] [amoxicillin / azithromycin / cefdinir], weight-based, for outpatient treatment. Supportive care discussed with parent at bedside, including acetaminophen or ibuprofen for fever control and encouraging fluids as tolerated. [Continued with prescribed albuterol as needed.] Parent verbalized understanding and was comfortable with the plan for discharge and follow-up.<br><br>Return precautions discussed, including but not limited to: worsening or persistent fever, increased work of breathing, chest pain, vomiting, lethargy, poor oral intake, cyanosis, or any new or concerning symptoms. Advised follow-up with pediatrician within 48–72 hours for reassessment or sooner if symptoms worsen.</div>
+          <div class="macro-body rounded-b-2xl p-3.5 text-[0.9rem] leading-6">Patient presented with [cough / fever / shortness of breath / malaise] for [duration] prior to arrival. Parent present at bedside reports [persistent cough / decreased appetite / mild fatigue / increased work of breathing] with [no vomiting / no lethargy / no rash]. On exam, patient was alert, interactive, and behaving appropriately for age. Lungs revealed [focal crackles / diminished breath sounds / rhonchi / mild wheezing], with [no retractions / no nasal flaring / normal oxygen saturation]. Findings otherwise reassuring, with no signs of respiratory distress or dehydration.<br><br>Differential includes viral pneumonia, bacterial pneumonia, bronchiolitis, asthma or reactive airway exacerbation, and upper respiratory infection. Findings today are most consistent with [bacterial / viral] pneumonia based on clinical picture and [chest x-ray results / auscultatory findings].<br><br>Findings and imaging were consistent with [bacterial / viral] pneumonia. Patient was [prescribed / given] [amoxicillin / azithromycin / cefdinir], weight-based, for outpatient treatment. Supportive care discussed with parent at bedside, including acetaminophen or ibuprofen for fever control and encouraging fluids as tolerated. [Continued with prescribed albuterol as needed.] Parent verbalized understanding and was comfortable with the plan for discharge and follow-up.<br><br>Return precautions discussed, including but not limited to: worsening or persistent fever, increased work of breathing, chest pain, vomiting, lethargy, poor oral intake, cyanosis, or any new or concerning symptoms. Advised follow-up with pediatrician within 48–72 hours for reassessment or sooner if symptoms worsen.</div>
 
         </div><div class="bg-panel rounded-2xl shadow-card" draggable="true" data-id="comm-out">
 
-          <div class="macro-card rounded-2xl p-3 flex items-start justify-between gap-3">
+          <div class="macro-card rounded-2xl p-3.5 flex items-start justify-between gap-3">
 
             <div>
 
-              <h3 class="text-sm font-semibold text-white mb-1">Communication sign out</h3>
+              <h3 class="text-[1rem] font-semibold text-white mb-1">Communication sign out</h3>
 
-              <button data-action="copy-dot" data-id="comm-out" class="inline-flex items-center gap-1 bg-white/10 hover:bg-white/20 text-[11px] text-white rounded-full px-2 py-0.5">Dot: .signout</button>
+              <button data-action="copy-dot" data-id="comm-out" class="inline-flex items-center gap-1 bg-white/10 hover:bg-white/20 text-[11px] text-white rounded-full px-2.5 py-0.5">Dot: .signout</button>
 
             </div>
 
             <div class="flex gap-2 shrink-0">
 
-              <button data-action="copy" data-id="comm-out" class="text-xs bg-white/10 hover:bg-white/20 text-white rounded-md px-2 py-1">Copy</button>
+              <button data-action="copy" data-id="comm-out" class="text-xs bg-white/10 hover:bg-white/20 text-white rounded-md px-2.5 py-1">Copy</button>
 
-              <button data-action="edit" data-id="comm-out" class="text-xs bg-white/10 hover:bg-white/20 text-white rounded-md px-2 py-1">Edit</button>
+              <button data-action="edit" data-id="comm-out" class="text-xs bg-white/10 hover:bg-white/20 text-white rounded-md px-2.5 py-1">Edit</button>
 
-              <button data-action="del" data-id="comm-out" class="text-xs bg-white/10 hover:bg-white/20 text-white rounded-md px-2 py-1">Del</button>
+              <button data-action="del" data-id="comm-out" class="text-xs bg-white/10 hover:bg-white/20 text-white rounded-md px-2.5 py-1">Del</button>
 
             </div>
 
           </div>
 
-          <div class="macro-body rounded-b-2xl p-3 text-[13px] leading-5">Patient signed out to [Dr. _____] at [time] with pending [labs / imaging / re-evaluation]. Clinical course and current status reviewed in detail. Disposition options discussed and plan of care conveyed to the receiving provider, who will follow pending results and determine final disposition. Patient remained stable at time of sign-out.</div>
+          <div class="macro-body rounded-b-2xl p-3.5 text-[0.9rem] leading-6">Patient signed out to [Dr. _____] at [time] with pending [labs / imaging / re-evaluation]. Clinical course and current status reviewed in detail. Disposition options discussed and plan of care conveyed to the receiving provider, who will follow pending results and determine final disposition. Patient remained stable at time of sign-out.</div>
 
         </div><div class="bg-panel rounded-2xl shadow-card" draggable="true" data-id="comm-in">
 
-          <div class="macro-card rounded-2xl p-3 flex items-start justify-between gap-3">
+          <div class="macro-card rounded-2xl p-3.5 flex items-start justify-between gap-3">
 
             <div>
 
-              <h3 class="text-sm font-semibold text-white mb-1">Communication signin</h3>
+              <h3 class="text-[1rem] font-semibold text-white mb-1">Communication signin</h3>
 
-              <button data-action="copy-dot" data-id="comm-in" class="inline-flex items-center gap-1 bg-white/10 hover:bg-white/20 text-[11px] text-white rounded-full px-2 py-0.5">Dot: .signin</button>
+              <button data-action="copy-dot" data-id="comm-in" class="inline-flex items-center gap-1 bg-white/10 hover:bg-white/20 text-[11px] text-white rounded-full px-2.5 py-0.5">Dot: .signin</button>
 
             </div>
 
             <div class="flex gap-2 shrink-0">
 
-              <button data-action="copy" data-id="comm-in" class="text-xs bg-white/10 hover:bg-white/20 text-white rounded-md px-2 py-1">Copy</button>
+              <button data-action="copy" data-id="comm-in" class="text-xs bg-white/10 hover:bg-white/20 text-white rounded-md px-2.5 py-1">Copy</button>
 
-              <button data-action="edit" data-id="comm-in" class="text-xs bg-white/10 hover:bg-white/20 text-white rounded-md px-2 py-1">Edit</button>
+              <button data-action="edit" data-id="comm-in" class="text-xs bg-white/10 hover:bg-white/20 text-white rounded-md px-2.5 py-1">Edit</button>
 
-              <button data-action="del" data-id="comm-in" class="text-xs bg-white/10 hover:bg-white/20 text-white rounded-md px-2 py-1">Del</button>
+              <button data-action="del" data-id="comm-in" class="text-xs bg-white/10 hover:bg-white/20 text-white rounded-md px-2.5 py-1">Del</button>
 
             </div>
 
           </div>
 
-          <div class="macro-body rounded-b-2xl p-3 text-[13px] leading-5">Patient received in sign-out from [Dr. _____] at [time] with pending [results / re-evaluation / consults]. Prior ED course, findings, and disposition considerations reviewed. Assuming ongoing care and final disposition.</div>
+          <div class="macro-body rounded-b-2xl p-3.5 text-[0.9rem] leading-6">Patient received in sign-out from [Dr. _____] at [time] with pending [results / re-evaluation / consults]. Prior ED course, findings, and disposition considerations reviewed. Assuming ongoing care and final disposition.</div>
 
         </div><div class="bg-panel rounded-2xl shadow-card" draggable="true" data-id="peds-head-nct">
 
-          <div class="macro-card rounded-2xl p-3 flex items-start justify-between gap-3">
+          <div class="macro-card rounded-2xl p-3.5 flex items-start justify-between gap-3">
 
             <div>
 
-              <h3 class="text-sm font-semibold text-white mb-1">MDM — Pediatric Head Trauma (No CT, No Observation)</h3>
+              <h3 class="text-[1rem] font-semibold text-white mb-1">MDM — Pediatric Head Trauma (No CT, No Observation)</h3>
 
-              <button data-action="copy-dot" data-id="peds-head-nct" class="inline-flex items-center gap-1 bg-white/10 hover:bg-white/20 text-[11px] text-white rounded-full px-2 py-0.5">Dot: .pedshead-nct</button>
+              <button data-action="copy-dot" data-id="peds-head-nct" class="inline-flex items-center gap-1 bg-white/10 hover:bg-white/20 text-[11px] text-white rounded-full px-2.5 py-0.5">Dot: .pedshead-nct</button>
 
             </div>
 
             <div class="flex gap-2 shrink-0">
 
-              <button data-action="copy" data-id="peds-head-nct" class="text-xs bg-white/10 hover:bg-white/20 text-white rounded-md px-2 py-1">Copy</button>
+              <button data-action="copy" data-id="peds-head-nct" class="text-xs bg-white/10 hover:bg-white/20 text-white rounded-md px-2.5 py-1">Copy</button>
 
-              <button data-action="edit" data-id="peds-head-nct" class="text-xs bg-white/10 hover:bg-white/20 text-white rounded-md px-2 py-1">Edit</button>
+              <button data-action="edit" data-id="peds-head-nct" class="text-xs bg-white/10 hover:bg-white/20 text-white rounded-md px-2.5 py-1">Edit</button>
 
-              <button data-action="del" data-id="peds-head-nct" class="text-xs bg-white/10 hover:bg-white/20 text-white rounded-md px-2 py-1">Del</button>
+              <button data-action="del" data-id="peds-head-nct" class="text-xs bg-white/10 hover:bg-white/20 text-white rounded-md px-2.5 py-1">Del</button>
 
             </div>
 
           </div>
 
-          <div class="macro-body rounded-b-2xl p-3 text-[13px] leading-5">PECARN CALCULATIONS:<br><br>Age group: [&lt;2 years / ≥2 years]<br><br>Mechanism of injury: [describe]<br><br>PECARN ciTBI estimated risk:<br><br>    &lt;2 years: &lt;0.02 %<br><br>    ≥2 years: &lt;0.05 %<br><br>All predictors negative:<br><br>    - Normal mental status, GCS 15<br><br>    - No loss of consciousness (≥2 y: any; &lt;2 y: ≥5 s)<br><br>    - No palpable or basilar skull fracture<br><br>    - No non-frontal scalp hematoma (&lt;2 y)<br><br>    - No vomiting, severe headache, or severe mechanism<br><br>---<br><br>Patient presented after minor head trauma with no loss of consciousness, vomiting, or abnormal behavior. On examination, child appeared well, alert, and interactive for age with normal tone, strength, and coordination. Pupils equal and reactive; no scalp hematoma or tenderness; no step-off or signs of basilar skull fracture. Vitals stable and age-appropriate. No focal neurologic deficits.<br><br>Based on the PECARN decision rule, patient meets very-low-risk criteria for clinically important traumatic brain injury (estimated risk &lt;0.05%). Given the absence of concerning features and a reassuring neurologic exam, no head CT or prolonged observation is indicated. Discussed the extremely low probability of intracranial injury and risks associated with radiation exposure with the parent, who agreed with home observation. All questions answered and expectations reviewed.<br><br>Patient remained well-appearing and interactive during ED course. Discharged home with strict return precautions for persistent vomiting, worsening headache, confusion, seizure, focal deficits, lethargy, or poor oral intake. Advised follow-up with pediatrician within 48 hours or sooner if concerns arise.</div>
+          <div class="macro-body rounded-b-2xl p-3.5 text-[0.9rem] leading-6">PECARN CALCULATIONS:<br><br>Age group: [&lt;2 years / ≥2 years]<br><br>Mechanism of injury: [describe]<br><br>PECARN ciTBI estimated risk:<br><br>    &lt;2 years: &lt;0.02 %<br><br>    ≥2 years: &lt;0.05 %<br><br>All predictors negative:<br><br>    - Normal mental status, GCS 15<br><br>    - No loss of consciousness (≥2 y: any; &lt;2 y: ≥5 s)<br><br>    - No palpable or basilar skull fracture<br><br>    - No non-frontal scalp hematoma (&lt;2 y)<br><br>    - No vomiting, severe headache, or severe mechanism<br><br>---<br><br>Patient presented after minor head trauma with no loss of consciousness, vomiting, or abnormal behavior. On examination, child appeared well, alert, and interactive for age with normal tone, strength, and coordination. Pupils equal and reactive; no scalp hematoma or tenderness; no step-off or signs of basilar skull fracture. Vitals stable and age-appropriate. No focal neurologic deficits.<br><br>Based on the PECARN decision rule, patient meets very-low-risk criteria for clinically important traumatic brain injury (estimated risk &lt;0.05%). Given the absence of concerning features and a reassuring neurologic exam, no head CT or prolonged observation is indicated. Discussed the extremely low probability of intracranial injury and risks associated with radiation exposure with the parent, who agreed with home observation. All questions answered and expectations reviewed.<br><br>Patient remained well-appearing and interactive during ED course. Discharged home with strict return precautions for persistent vomiting, worsening headache, confusion, seizure, focal deficits, lethargy, or poor oral intake. Advised follow-up with pediatrician within 48 hours or sooner if concerns arise.</div>
 
         </div><div class="bg-panel rounded-2xl shadow-card" draggable="true" data-id="peds-head-observe">
 
-          <div class="macro-card rounded-2xl p-3 flex items-start justify-between gap-3">
+          <div class="macro-card rounded-2xl p-3.5 flex items-start justify-between gap-3">
 
             <div>
 
-              <h3 class="text-sm font-semibold text-white mb-1">MDM — Pediatric Head Trauma (Observation without CT)</h3>
+              <h3 class="text-[1rem] font-semibold text-white mb-1">MDM — Pediatric Head Trauma (Observation without CT)</h3>
 
-              <button data-action="copy-dot" data-id="peds-head-observe" class="inline-flex items-center gap-1 bg-white/10 hover:bg-white/20 text-[11px] text-white rounded-full px-2 py-0.5">Dot: .pedshead-observe</button>
+              <button data-action="copy-dot" data-id="peds-head-observe" class="inline-flex items-center gap-1 bg-white/10 hover:bg-white/20 text-[11px] text-white rounded-full px-2.5 py-0.5">Dot: .pedshead-observe</button>
 
             </div>
 
             <div class="flex gap-2 shrink-0">
 
-              <button data-action="copy" data-id="peds-head-observe" class="text-xs bg-white/10 hover:bg-white/20 text-white rounded-md px-2 py-1">Copy</button>
+              <button data-action="copy" data-id="peds-head-observe" class="text-xs bg-white/10 hover:bg-white/20 text-white rounded-md px-2.5 py-1">Copy</button>
 
-              <button data-action="edit" data-id="peds-head-observe" class="text-xs bg-white/10 hover:bg-white/20 text-white rounded-md px-2 py-1">Edit</button>
+              <button data-action="edit" data-id="peds-head-observe" class="text-xs bg-white/10 hover:bg-white/20 text-white rounded-md px-2.5 py-1">Edit</button>
 
-              <button data-action="del" data-id="peds-head-observe" class="text-xs bg-white/10 hover:bg-white/20 text-white rounded-md px-2 py-1">Del</button>
+              <button data-action="del" data-id="peds-head-observe" class="text-xs bg-white/10 hover:bg-white/20 text-white rounded-md px-2.5 py-1">Del</button>
 
             </div>
 
           </div>
 
-          <div class="macro-body rounded-b-2xl p-3 text-[13px] leading-5">PECARN CALCULATIONS:<br><br>Age group: [&lt;2 years / ≥2 years]  <br><br>Mechanism of injury: [describe]  <br><br>PECARN ciTBI estimated risk:  <br><br> &lt; 2 years ≈ 0.9 %  ≥ 2 years ≈ 0.8 %  <br><br>Low-risk group with intermediate factor(s): [list specific factor(s)]  <br><br> - Normal mental status / GCS 15  <br><br> - No palpable or basilar skull fracture  <br><br> - No signs of focal neurologic deficit  <br><br> - May have isolated vomiting / brief LOC / mild headache / frontal hematoma  <br><br> - Mechanism not severe  <br><br>---<br><br>Patient presented after minor head trauma with [brief loss of consciousness / single vomit / mild headache] and otherwise normal behavior per caregiver. Exam revealed a well-appearing, interactive child with normal pupils, tone, strength, and coordination. No skull tenderness or step-off appreciated; tympanic membranes clear; no basilar signs. Vitals stable and appropriate for age.<br><br>Using the PECARN rule, patient falls within the low-risk “observation” zone (&lt; 1 % risk for ciTBI). Given the absence of high-risk findings and reassuring exam, CT was deferred in favor of ED observation with serial neurologic assessments. Family counseled regarding small residual risk of intracranial injury versus radiation exposure from CT, and agreed with observation.<br><br>Patient observed in the ED for [__ hours] with stable vitals, normal serial neuro exams, and no further vomiting or changes in behavior. Findings remained reassuring. Discussed warning signs and need for prompt return if headache, vomiting, confusion, seizure, lethargy, or any new neurologic deficits develop. Discharged home in stable condition with follow-up arranged with pediatrician within 24–48 hours.</div>
+          <div class="macro-body rounded-b-2xl p-3.5 text-[0.9rem] leading-6">PECARN CALCULATIONS:<br><br>Age group: [&lt;2 years / ≥2 years]  <br><br>Mechanism of injury: [describe]  <br><br>PECARN ciTBI estimated risk:  <br><br> &lt; 2 years ≈ 0.9 %  ≥ 2 years ≈ 0.8 %  <br><br>Low-risk group with intermediate factor(s): [list specific factor(s)]  <br><br> - Normal mental status / GCS 15  <br><br> - No palpable or basilar skull fracture  <br><br> - No signs of focal neurologic deficit  <br><br> - May have isolated vomiting / brief LOC / mild headache / frontal hematoma  <br><br> - Mechanism not severe  <br><br>---<br><br>Patient presented after minor head trauma with [brief loss of consciousness / single vomit / mild headache] and otherwise normal behavior per caregiver. Exam revealed a well-appearing, interactive child with normal pupils, tone, strength, and coordination. No skull tenderness or step-off appreciated; tympanic membranes clear; no basilar signs. Vitals stable and appropriate for age.<br><br>Using the PECARN rule, patient falls within the low-risk “observation” zone (&lt; 1 % risk for ciTBI). Given the absence of high-risk findings and reassuring exam, CT was deferred in favor of ED observation with serial neurologic assessments. Family counseled regarding small residual risk of intracranial injury versus radiation exposure from CT, and agreed with observation.<br><br>Patient observed in the ED for [__ hours] with stable vitals, normal serial neuro exams, and no further vomiting or changes in behavior. Findings remained reassuring. Discussed warning signs and need for prompt return if headache, vomiting, confusion, seizure, lethargy, or any new neurologic deficits develop. Discharged home in stable condition with follow-up arranged with pediatrician within 24–48 hours.</div>
 
         </div><div class="bg-panel rounded-2xl shadow-card" draggable="true" data-id="peds-head-ct">
 
-          <div class="macro-card rounded-2xl p-3 flex items-start justify-between gap-3">
+          <div class="macro-card rounded-2xl p-3.5 flex items-start justify-between gap-3">
 
             <div>
 
-              <h3 class="text-sm font-semibold text-white mb-1">MDM — Pediatric Head Trauma (CT Recommended)</h3>
+              <h3 class="text-[1rem] font-semibold text-white mb-1">MDM — Pediatric Head Trauma (CT Recommended)</h3>
 
-              <button data-action="copy-dot" data-id="peds-head-ct" class="inline-flex items-center gap-1 bg-white/10 hover:bg-white/20 text-[11px] text-white rounded-full px-2 py-0.5">Dot: .pedshead-ct</button>
+              <button data-action="copy-dot" data-id="peds-head-ct" class="inline-flex items-center gap-1 bg-white/10 hover:bg-white/20 text-[11px] text-white rounded-full px-2.5 py-0.5">Dot: .pedshead-ct</button>
 
             </div>
 
             <div class="flex gap-2 shrink-0">
 
-              <button data-action="copy" data-id="peds-head-ct" class="text-xs bg-white/10 hover:bg-white/20 text-white rounded-md px-2 py-1">Copy</button>
+              <button data-action="copy" data-id="peds-head-ct" class="text-xs bg-white/10 hover:bg-white/20 text-white rounded-md px-2.5 py-1">Copy</button>
 
-              <button data-action="edit" data-id="peds-head-ct" class="text-xs bg-white/10 hover:bg-white/20 text-white rounded-md px-2 py-1">Edit</button>
+              <button data-action="edit" data-id="peds-head-ct" class="text-xs bg-white/10 hover:bg-white/20 text-white rounded-md px-2.5 py-1">Edit</button>
 
-              <button data-action="del" data-id="peds-head-ct" class="text-xs bg-white/10 hover:bg-white/20 text-white rounded-md px-2 py-1">Del</button>
+              <button data-action="del" data-id="peds-head-ct" class="text-xs bg-white/10 hover:bg-white/20 text-white rounded-md px-2.5 py-1">Del</button>
 
             </div>
 
           </div>
 
-          <div class="macro-body rounded-b-2xl p-3 text-[13px] leading-5">PECARN CALCULATIONS:<br><br>Age group: [&lt;2 years / ≥2 years]  <br><br>Mechanism of injury: [describe]  <br><br>PECARN ciTBI estimated risk:  <br><br> &lt; 2 years ≈ 4.4 %  ≥ 2 years ≈ 4.3 %  <br><br>High-risk feature(s) present: [list specific findings]  <br><br> - Abnormal mental status or GCS &lt; 15 at 2 hours  <br><br> - Palpable skull fracture (&lt; 2 y) / Signs of basilar skull fracture (≥ 2 y)  <br><br> - Severe mechanism (fall &gt; 3 ft &lt; 2 y / &gt; 5 ft ≥ 2 y; pedestrian / bicyclist struck; high-impact object)  <br><br> - Repeated vomiting / severe headache  <br><br> - Any focal neuro deficit or seizure  <br><br>---<br><br>Patient presented after [mechanism] with [concerning symptom: vomiting, altered mental status, skull defect, or severe headache]. On arrival, GCS [15 / less if applicable]; pupils equal and reactive; no significant external bleeding. Exam revealed [palpable frontal step-off / battle sign / periorbital ecchymosis / hematoma description]. Neurologic exam otherwise intact. Vitals stable.<br><br>By PECARN criteria, presence of [high-risk finding] places patient in the imaging pathway with ≈4 % risk for ciTBI. Discussed the evidence-based recommendation for head CT to exclude intracranial injury and reviewed the benefits and radiation risks with the parent. Consent obtained for imaging after shared decision-making.<br><br>Patient remained hemodynamically stable and interactive while awaiting CT. Imaging [negative / demonstrated ___]. If negative, findings consistent with minor head injury without intracranial pathology; family counseled on home observation and return precautions. If positive, neurosurgery and pediatrics consulted for management and admission as indicated. All results and follow-up instructions reviewed with caregiver who verbalized understanding.</div>
+          <div class="macro-body rounded-b-2xl p-3.5 text-[0.9rem] leading-6">PECARN CALCULATIONS:<br><br>Age group: [&lt;2 years / ≥2 years]  <br><br>Mechanism of injury: [describe]  <br><br>PECARN ciTBI estimated risk:  <br><br> &lt; 2 years ≈ 4.4 %  ≥ 2 years ≈ 4.3 %  <br><br>High-risk feature(s) present: [list specific findings]  <br><br> - Abnormal mental status or GCS &lt; 15 at 2 hours  <br><br> - Palpable skull fracture (&lt; 2 y) / Signs of basilar skull fracture (≥ 2 y)  <br><br> - Severe mechanism (fall &gt; 3 ft &lt; 2 y / &gt; 5 ft ≥ 2 y; pedestrian / bicyclist struck; high-impact object)  <br><br> - Repeated vomiting / severe headache  <br><br> - Any focal neuro deficit or seizure  <br><br>---<br><br>Patient presented after [mechanism] with [concerning symptom: vomiting, altered mental status, skull defect, or severe headache]. On arrival, GCS [15 / less if applicable]; pupils equal and reactive; no significant external bleeding. Exam revealed [palpable frontal step-off / battle sign / periorbital ecchymosis / hematoma description]. Neurologic exam otherwise intact. Vitals stable.<br><br>By PECARN criteria, presence of [high-risk finding] places patient in the imaging pathway with ≈4 % risk for ciTBI. Discussed the evidence-based recommendation for head CT to exclude intracranial injury and reviewed the benefits and radiation risks with the parent. Consent obtained for imaging after shared decision-making.<br><br>Patient remained hemodynamically stable and interactive while awaiting CT. Imaging [negative / demonstrated ___]. If negative, findings consistent with minor head injury without intracranial pathology; family counseled on home observation and return precautions. If positive, neurosurgery and pediatrics consulted for management and admission as indicated. All results and follow-up instructions reviewed with caregiver who verbalized understanding.</div>
 
         </div><div class="bg-panel rounded-2xl shadow-card" draggable="true" data-id="hyperbili-below">
 
-          <div class="macro-card rounded-2xl p-3 flex items-start justify-between gap-3">
+          <div class="macro-card rounded-2xl p-3.5 flex items-start justify-between gap-3">
 
             <div>
 
-              <h3 class="text-sm font-semibold text-white mb-1">MDM — Neonatal Hyperbilirubinemia (Below Phototherapy Threshold)</h3>
+              <h3 class="text-[1rem] font-semibold text-white mb-1">MDM — Neonatal Hyperbilirubinemia (Below Phototherapy Threshold)</h3>
 
-              <button data-action="copy-dot" data-id="hyperbili-below" class="inline-flex items-center gap-1 bg-white/10 hover:bg-white/20 text-[11px] text-white rounded-full px-2 py-0.5">Dot: .hyperbili-below</button>
+              <button data-action="copy-dot" data-id="hyperbili-below" class="inline-flex items-center gap-1 bg-white/10 hover:bg-white/20 text-[11px] text-white rounded-full px-2.5 py-0.5">Dot: .hyperbili-below</button>
 
             </div>
 
             <div class="flex gap-2 shrink-0">
 
-              <button data-action="copy" data-id="hyperbili-below" class="text-xs bg-white/10 hover:bg-white/20 text-white rounded-md px-2 py-1">Copy</button>
+              <button data-action="copy" data-id="hyperbili-below" class="text-xs bg-white/10 hover:bg-white/20 text-white rounded-md px-2.5 py-1">Copy</button>
 
-              <button data-action="edit" data-id="hyperbili-below" class="text-xs bg-white/10 hover:bg-white/20 text-white rounded-md px-2 py-1">Edit</button>
+              <button data-action="edit" data-id="hyperbili-below" class="text-xs bg-white/10 hover:bg-white/20 text-white rounded-md px-2.5 py-1">Edit</button>
 
-              <button data-action="del" data-id="hyperbili-below" class="text-xs bg-white/10 hover:bg-white/20 text-white rounded-md px-2 py-1">Del</button>
+              <button data-action="del" data-id="hyperbili-below" class="text-xs bg-white/10 hover:bg-white/20 text-white rounded-md px-2.5 py-1">Del</button>
 
             </div>
 
           </div>
 
-          <div class="macro-body rounded-b-2xl p-3 text-[13px] leading-5">BILIRUBIN CALCULATIONS / RISK FACTORS:<br><br>Age at sampling: [__ hours] Gestational age: [__ weeks + __ days] Birth weight: [__ g]  <br><br>Feeding / weight loss: [breast / formula ; __ % loss]  <br><br>AAP 2022 Risk Factors: [none / GA &lt; 38 w / isoimmune hemolysis / G6PD / sepsis / albumin &lt; 3.0 / bruising or cephalohematoma]  <br><br>Measurements: TSB [__ mg/dL] at [__ h] Phototherapy threshold [__ mg/dL] Δ to threshold = [__ mg/dL] (below)  <br><br>Exchange threshold [__ mg/dL] Risk curve / percentile [__]<br><br>---<br><br>Infant evaluated for neonatal jaundice at [__ hours] of life. Well appearing, alert, and feeding [adequately / improving] with stable vitals and no evidence of lethargy, poor tone, or dehydration. No scleral icterus beyond mild facial/chest jaundice. TSB of [__ mg/dL] is below the AAP phototherapy threshold of [__ mg/dL] for gestational age and risk profile, placing infant in the low-risk zone for clinically significant hyperbilirubinemia.<br><br>Findings consistent with physiologic jaundice. Discussed expected bilirubin course and importance of frequent feeds to optimize enteric clearance. Family educated on return precautions for poor feeding, lethargy, dark urine, acholic stools, or worsening jaundice to the lower extremities. Plan for repeat bilirubin check within 24–48 hours and close pediatric follow-up. Caregivers verbalized understanding and comfort with home observation.</div>
+          <div class="macro-body rounded-b-2xl p-3.5 text-[0.9rem] leading-6">BILIRUBIN CALCULATIONS / RISK FACTORS:<br><br>Age at sampling: [__ hours] Gestational age: [__ weeks + __ days] Birth weight: [__ g]  <br><br>Feeding / weight loss: [breast / formula ; __ % loss]  <br><br>AAP 2022 Risk Factors: [none / GA &lt; 38 w / isoimmune hemolysis / G6PD / sepsis / albumin &lt; 3.0 / bruising or cephalohematoma]  <br><br>Measurements: TSB [__ mg/dL] at [__ h] Phototherapy threshold [__ mg/dL] Δ to threshold = [__ mg/dL] (below)  <br><br>Exchange threshold [__ mg/dL] Risk curve / percentile [__]<br><br>---<br><br>Infant evaluated for neonatal jaundice at [__ hours] of life. Well appearing, alert, and feeding [adequately / improving] with stable vitals and no evidence of lethargy, poor tone, or dehydration. No scleral icterus beyond mild facial/chest jaundice. TSB of [__ mg/dL] is below the AAP phototherapy threshold of [__ mg/dL] for gestational age and risk profile, placing infant in the low-risk zone for clinically significant hyperbilirubinemia.<br><br>Findings consistent with physiologic jaundice. Discussed expected bilirubin course and importance of frequent feeds to optimize enteric clearance. Family educated on return precautions for poor feeding, lethargy, dark urine, acholic stools, or worsening jaundice to the lower extremities. Plan for repeat bilirubin check within 24–48 hours and close pediatric follow-up. Caregivers verbalized understanding and comfort with home observation.</div>
 
         </div><div class="bg-panel rounded-2xl shadow-card" draggable="true" data-id="hyperbili-photo">
 
-          <div class="macro-card rounded-2xl p-3 flex items-start justify-between gap-3">
+          <div class="macro-card rounded-2xl p-3.5 flex items-start justify-between gap-3">
 
             <div>
 
-              <h3 class="text-sm font-semibold text-white mb-1">MDM — Neonatal Hyperbilirubinemia (Phototherapy Initiated)</h3>
+              <h3 class="text-[1rem] font-semibold text-white mb-1">MDM — Neonatal Hyperbilirubinemia (Phototherapy Initiated)</h3>
 
-              <button data-action="copy-dot" data-id="hyperbili-photo" class="inline-flex items-center gap-1 bg-white/10 hover:bg-white/20 text-[11px] text-white rounded-full px-2 py-0.5">Dot: .hyperbili-photo</button>
+              <button data-action="copy-dot" data-id="hyperbili-photo" class="inline-flex items-center gap-1 bg-white/10 hover:bg-white/20 text-[11px] text-white rounded-full px-2.5 py-0.5">Dot: .hyperbili-photo</button>
 
             </div>
 
             <div class="flex gap-2 shrink-0">
 
-              <button data-action="copy" data-id="hyperbili-photo" class="text-xs bg-white/10 hover:bg-white/20 text-white rounded-md px-2 py-1">Copy</button>
+              <button data-action="copy" data-id="hyperbili-photo" class="text-xs bg-white/10 hover:bg-white/20 text-white rounded-md px-2.5 py-1">Copy</button>
 
-              <button data-action="edit" data-id="hyperbili-photo" class="text-xs bg-white/10 hover:bg-white/20 text-white rounded-md px-2 py-1">Edit</button>
+              <button data-action="edit" data-id="hyperbili-photo" class="text-xs bg-white/10 hover:bg-white/20 text-white rounded-md px-2.5 py-1">Edit</button>
 
-              <button data-action="del" data-id="hyperbili-photo" class="text-xs bg-white/10 hover:bg-white/20 text-white rounded-md px-2 py-1">Del</button>
+              <button data-action="del" data-id="hyperbili-photo" class="text-xs bg-white/10 hover:bg-white/20 text-white rounded-md px-2.5 py-1">Del</button>
 
             </div>
 
           </div>
 
-          <div class="macro-body rounded-b-2xl p-3 text-[13px] leading-5">BILIRUBIN CALCULATIONS / RISK FACTORS:<br><br>Age at sampling: [__ hours] Gestational age: [__ weeks + __ days] Birth weight: [__ g]  <br><br>AAP 2022 Risk Factors: [GA &lt; 38 w / isoimmune hemolysis / G6PD / sepsis / albumin &lt; 3.0 / other]  <br><br>Measurements: TSB [__ mg/dL] at [__ h] Phototherapy threshold [__ mg/dL] Δ to threshold = [__ mg/dL] (at/above)  <br><br>Exchange threshold [__ mg/dL] Rate of rise (if known) [__ mg/dL/hr]<br><br>---<br><br>Infant presented with progressive jaundice; on exam alert and interactive with normal tone and suck. No signs of acute bilirubin encephalopathy. Serum bilirubin above AAP phototherapy threshold for age and risk factors. No dehydration or clinical signs of infection.<br><br>Initiated intensive phototherapy using LED blue lights with maximized body surface exposure and eye protection in place. Encouraged frequent feeds to enhance bilirubin elimination and monitored intake/output. No signs of hemolysis or cephalohematoma requiring additional intervention. Family counseled on treatment course, expected timeline for decline in TSB, and need for serial levels to confirm response.<br><br>Patient tolerated therapy well with stable vitals and improving jaundice trend. Plan for TSB recheck in 4–6 hours to confirm decrease, continue phototherapy until TSB is &gt; 2 mg/dL below threshold and trending down. If criteria met, phototherapy to be stopped with rebound TSB draw 6–12 hours later as indicated. Parents informed of follow-up requirements and return precautions.</div>
+          <div class="macro-body rounded-b-2xl p-3.5 text-[0.9rem] leading-6">BILIRUBIN CALCULATIONS / RISK FACTORS:<br><br>Age at sampling: [__ hours] Gestational age: [__ weeks + __ days] Birth weight: [__ g]  <br><br>AAP 2022 Risk Factors: [GA &lt; 38 w / isoimmune hemolysis / G6PD / sepsis / albumin &lt; 3.0 / other]  <br><br>Measurements: TSB [__ mg/dL] at [__ h] Phototherapy threshold [__ mg/dL] Δ to threshold = [__ mg/dL] (at/above)  <br><br>Exchange threshold [__ mg/dL] Rate of rise (if known) [__ mg/dL/hr]<br><br>---<br><br>Infant presented with progressive jaundice; on exam alert and interactive with normal tone and suck. No signs of acute bilirubin encephalopathy. Serum bilirubin above AAP phototherapy threshold for age and risk factors. No dehydration or clinical signs of infection.<br><br>Initiated intensive phototherapy using LED blue lights with maximized body surface exposure and eye protection in place. Encouraged frequent feeds to enhance bilirubin elimination and monitored intake/output. No signs of hemolysis or cephalohematoma requiring additional intervention. Family counseled on treatment course, expected timeline for decline in TSB, and need for serial levels to confirm response.<br><br>Patient tolerated therapy well with stable vitals and improving jaundice trend. Plan for TSB recheck in 4–6 hours to confirm decrease, continue phototherapy until TSB is &gt; 2 mg/dL below threshold and trending down. If criteria met, phototherapy to be stopped with rebound TSB draw 6–12 hours later as indicated. Parents informed of follow-up requirements and return precautions.</div>
 
         </div><div class="bg-panel rounded-2xl shadow-card" draggable="true" data-id="hyperbili-exchange">
 
-          <div class="macro-card rounded-2xl p-3 flex items-start justify-between gap-3">
+          <div class="macro-card rounded-2xl p-3.5 flex items-start justify-between gap-3">
 
             <div>
 
-              <h3 class="text-sm font-semibold text-white mb-1">MDM — Neonatal Hyperbilirubinemia (Escalation / Exchange Threshold)</h3>
+              <h3 class="text-[1rem] font-semibold text-white mb-1">MDM — Neonatal Hyperbilirubinemia (Escalation / Exchange Threshold)</h3>
 
-              <button data-action="copy-dot" data-id="hyperbili-exchange" class="inline-flex items-center gap-1 bg-white/10 hover:bg-white/20 text-[11px] text-white rounded-full px-2 py-0.5">Dot: .hyperbili-exchange</button>
+              <button data-action="copy-dot" data-id="hyperbili-exchange" class="inline-flex items-center gap-1 bg-white/10 hover:bg-white/20 text-[11px] text-white rounded-full px-2.5 py-0.5">Dot: .hyperbili-exchange</button>
 
             </div>
 
             <div class="flex gap-2 shrink-0">
 
-              <button data-action="copy" data-id="hyperbili-exchange" class="text-xs bg-white/10 hover:bg-white/20 text-white rounded-md px-2 py-1">Copy</button>
+              <button data-action="copy" data-id="hyperbili-exchange" class="text-xs bg-white/10 hover:bg-white/20 text-white rounded-md px-2.5 py-1">Copy</button>
 
-              <button data-action="edit" data-id="hyperbili-exchange" class="text-xs bg-white/10 hover:bg-white/20 text-white rounded-md px-2 py-1">Edit</button>
+              <button data-action="edit" data-id="hyperbili-exchange" class="text-xs bg-white/10 hover:bg-white/20 text-white rounded-md px-2.5 py-1">Edit</button>
 
-              <button data-action="del" data-id="hyperbili-exchange" class="text-xs bg-white/10 hover:bg-white/20 text-white rounded-md px-2 py-1">Del</button>
+              <button data-action="del" data-id="hyperbili-exchange" class="text-xs bg-white/10 hover:bg-white/20 text-white rounded-md px-2.5 py-1">Del</button>
 
             </div>
 
           </div>
 
-          <div class="macro-body rounded-b-2xl p-3 text-[13px] leading-5">BILIRUBIN CALCULATIONS / RISK FACTORS:<br><br>Age at sampling: [__ hours] Gestational age: [__ weeks + __ days] Birth weight: [__ g]  <br><br>Risk Factors: [isoimmune hemolysis / G6PD / sepsis / albumin &lt; 3.0 / GA &lt; 38 w / other]  <br><br>Measurements: TSB [__ mg/dL] at [__ h] Phototherapy threshold [__ mg/dL] Exchange threshold [__ mg/dL]  <br><br>Δ to exchange = [__ mg/dL] (≥ 0 = at/above) Rate of rise [__ mg/dL/hr]<br><br>---<br><br>Infant with known hyperbilirubinemia on intensive phototherapy demonstrating TSB at or above the AAP exchange threshold. Examination shows alertness with slightly diminished tone but no overt signs of acute bilirubin encephalopathy. Vitals stable, feeding adequate. IV access established and volume status addressed.<br><br>Given TSB [__ mg/dL] at [__ hours] of life and Δ to exchange of [__ mg/dL], consulted Neonatology / NICU for escalation of care and potential exchange transfusion. Additional labs obtained including blood type, DAT/Coombs, CBC/retic, bilirubin fractionation, albumin, and G6PD level. If isoimmune hemolysis present, considered IVIG per AAP protocol. Supportive care continued with maximal phototherapy and temperature monitoring.<br><br>Discussed clinical status and risk of bilirubin neurotoxicity with caregivers; family understood need for NICU-level management and possible exchange procedure. Patient remained hemodynamically stable during transfer preparations.</div>
+          <div class="macro-body rounded-b-2xl p-3.5 text-[0.9rem] leading-6">BILIRUBIN CALCULATIONS / RISK FACTORS:<br><br>Age at sampling: [__ hours] Gestational age: [__ weeks + __ days] Birth weight: [__ g]  <br><br>Risk Factors: [isoimmune hemolysis / G6PD / sepsis / albumin &lt; 3.0 / GA &lt; 38 w / other]  <br><br>Measurements: TSB [__ mg/dL] at [__ h] Phototherapy threshold [__ mg/dL] Exchange threshold [__ mg/dL]  <br><br>Δ to exchange = [__ mg/dL] (≥ 0 = at/above) Rate of rise [__ mg/dL/hr]<br><br>---<br><br>Infant with known hyperbilirubinemia on intensive phototherapy demonstrating TSB at or above the AAP exchange threshold. Examination shows alertness with slightly diminished tone but no overt signs of acute bilirubin encephalopathy. Vitals stable, feeding adequate. IV access established and volume status addressed.<br><br>Given TSB [__ mg/dL] at [__ hours] of life and Δ to exchange of [__ mg/dL], consulted Neonatology / NICU for escalation of care and potential exchange transfusion. Additional labs obtained including blood type, DAT/Coombs, CBC/retic, bilirubin fractionation, albumin, and G6PD level. If isoimmune hemolysis present, considered IVIG per AAP protocol. Supportive care continued with maximal phototherapy and temperature monitoring.<br><br>Discussed clinical status and risk of bilirubin neurotoxicity with caregivers; family understood need for NICU-level management and possible exchange procedure. Patient remained hemodynamically stable during transfer preparations.</div>
 
         </div></div>
 
@@ -1196,7 +1224,7 @@ Discussed clinical status and risk of bilirubin neurotoxicity with caregivers; f
 
         btn.dataset.cat = cat;
 
-        btn.className = 'cat-btn w-full flex items-center justify-between bg-white/70 hover:bg-white rounded-2xl px-4 py-3 text-sm text-ink';
+        btn.className = 'cat-btn w-full flex items-center justify-between bg-white/70 hover:bg-white rounded-2xl px-4 py-3 text-[0.9rem] text-ink';
 
         if (cat === activeCat) btn.classList.add('bg-white');
 
@@ -1294,29 +1322,29 @@ Discussed clinical status and risk of bilirubin neurotoxicity with caregivers; f
 
         div.innerHTML = `
 
-          <div class="macro-card rounded-2xl p-3 flex items-start justify-between gap-3">
+          <div class="macro-card rounded-2xl p-3.5 flex items-start justify-between gap-3">
 
             <div>
 
-              <h3 class="text-sm font-semibold text-white mb-1">${m.title}</h3>
+              <h3 class="text-[1rem] font-semibold text-white mb-1">${m.title}</h3>
 
-              <button data-action="copy-dot" data-id="${m.id}" class="inline-flex items-center gap-1 bg-white/10 hover:bg-white/20 text-[11px] text-white rounded-full px-2 py-0.5">Dot: ${m.dot}</button>
+              <button data-action="copy-dot" data-id="${m.id}" class="inline-flex items-center gap-1 bg-white/10 hover:bg-white/20 text-[11px] text-white rounded-full px-2.5 py-0.5">Dot: ${m.dot}</button>
 
             </div>
 
             <div class="flex gap-2 shrink-0">
 
-              <button data-action="copy" data-id="${m.id}" class="text-xs bg-white/10 hover:bg-white/20 text-white rounded-md px-2 py-1">Copy</button>
+              <button data-action="copy" data-id="${m.id}" class="text-xs bg-white/10 hover:bg-white/20 text-white rounded-md px-2.5 py-1">Copy</button>
 
-              <button data-action="edit" data-id="${m.id}" class="text-xs bg-white/10 hover:bg-white/20 text-white rounded-md px-2 py-1">Edit</button>
+              <button data-action="edit" data-id="${m.id}" class="text-xs bg-white/10 hover:bg-white/20 text-white rounded-md px-2.5 py-1">Edit</button>
 
-              <button data-action="del" data-id="${m.id}" class="text-xs bg-white/10 hover:bg-white/20 text-white rounded-md px-2 py-1">Del</button>
+              <button data-action="del" data-id="${m.id}" class="text-xs bg-white/10 hover:bg-white/20 text-white rounded-md px-2.5 py-1">Del</button>
 
             </div>
 
           </div>
 
-          <div class="macro-body rounded-b-2xl p-3 text-[13px] leading-5">${escapeHtml(m.body)}</div>
+          <div class="macro-body rounded-b-2xl p-3.5 text-[0.9rem] leading-6">${escapeHtml(m.body)}</div>
 
         `;
 
@@ -1616,7 +1644,7 @@ Discussed clinical status and risk of bilirubin neurotoxicity with caregivers; f
 
     });
 
-    // LOGIN LOGIC
+    // LOGIN
 
     function showLoginIfNeeded() {
 
@@ -1670,7 +1698,7 @@ Discussed clinical status and risk of bilirubin neurotoxicity with caregivers; f
 
     });
 
-    // REAL GITHUB + NETLIFY SYNC (with error surfaced)
+    // GITHUB + NETLIFY SYNC with error surfaced
 
     async function githubSync() {
 
@@ -1826,7 +1854,7 @@ Discussed clinical status and risk of bilirubin neurotoxicity with caregivers; f
 
     document.getElementById('settings-sync').addEventListener('click', githubSync);
 
-    // init
+    // init UI
 
     renderCategories();
 
